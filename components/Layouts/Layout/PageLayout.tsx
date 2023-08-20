@@ -9,7 +9,7 @@ type Props = {
   parentClass?: string;
   className?: string;
 };
-function Layout({
+function PageLayout({
   children,
   color = "secondary",
   bg = "white",
@@ -24,4 +24,4 @@ function Layout({
   );
 }
 
-export default Layout;
+export default PageLayout;

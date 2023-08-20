@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../Layouts/Layout/Layout";
+import Layout from "../Layouts/Layout/PageLayout";
 import AppLogo from "../common/AppLogo";
 
 export default function MainNavbar() {

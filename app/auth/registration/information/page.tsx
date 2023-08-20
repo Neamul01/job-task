@@ -1,9 +1,10 @@
 "use client";
 import { Button, Label } from "flowbite-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-export default function InformationTab() {
+export default function Page() {
   const [form, setForm] = useState({
     fullName: "",
     emailAddress: "",
@@ -11,9 +12,10 @@ export default function InformationTab() {
     institute: 0,
     workTime: 0,
   });
+  const router = useRouter();
 
   return (
-    <div className="md:w-[800px] md:h-[469px] mx-auto">
+    <div className="md:max-w-registration md:h-[469px] mx-auto">
       <div className="flex flex-col gap-6">
         <h1 className="text-h1 capitalize flex justify-center font-semibold">
           personal information
@@ -66,7 +68,7 @@ export default function InformationTab() {
               <option value={1} className="custom-option">
                 Teacher
               </option>
-              <option value={2} selected className="custom-option">
+              <option value={2} className="custom-option">
                 Student
               </option>
             </select>
@@ -92,7 +94,7 @@ export default function InformationTab() {
                 className="border w-full rounded-lg px-4 py-6 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
               >
-                <option value="0" selected className="custom-option">
+                <option value={0} className="custom-option">
                   Select Institute Name
                 </option>
                 {institutes.map((institute) => (
@@ -148,8 +150,11 @@ export default function InformationTab() {
             </div>
           </div>
         ) : null}
-        <Button className="bg-primary py-6 px-4 hover:bg-secondary">
-          <span className="text-2xl">Login</span>
+        <Button
+          onClick={() => router.push("/auth/registration/security")}
+          className="bg-primary py-6 px-4 hover:bg-secondary"
+        >
+          <span className="text-2xl">Next</span>
         </Button>
         <div className="w-full flex justify-center">
           Don’t Have An Account?{" "}

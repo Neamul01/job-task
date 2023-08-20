@@ -14,6 +14,7 @@ const config: Config = {
       },
       maxWidth: {
         layout: "95rem",
+        registration: "800px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
