@@ -5,6 +5,7 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/flowbite-react/**/*.js",
   ],
   theme: {
     extend: {
@@ -25,8 +26,13 @@ const config: Config = {
         primary: "var(--primary-color)",
         secondary: "var(--secondary-color)",
       },
+      fontSize: {
+        h1: "42px",
+        h2: "36px",
+        h3: "32px",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
 export default config;
