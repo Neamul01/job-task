@@ -55,24 +55,20 @@ export default function Page() {
               </select>
             </div>
             <div className="flex items-center gap-2 shadow-xl px-7 py-4 rounded-lg">
-              <p className="font-semibold whitespace-nowrap">Sort By:</p>
+              <p className="font-semibold whitespace-nowrap">Courses</p>
               <select
                 name="popular"
                 id="popular"
                 defaultValue={form.popular}
                 onChange={(e) => setForm({ ...form, popular: e.target.value })}
-                className="w-32 rounded-lg border-none"
+                className="w-3 rounded-lg border-none"
               >
-                <option value={"popular"} className="custom-option">
-                  Popular
-                </option>
-                <option value={""} className="custom-option">
-                  Student
-                </option>
+                <option value={"popular"} className="custom-option"></option>
+                <option value={""} className="custom-option"></option>
               </select>
             </div>
             <div className="flex items-center gap-2 shadow-xl px-7 py-4 rounded-lg">
-              <p className="font-semibold whitespace-nowrap">Sort By:</p>
+              <p className="font-semibold whitespace-nowrap">Category:</p>
               <select
                 name="popular"
                 id="popular"
@@ -81,10 +77,10 @@ export default function Page() {
                 className="w-32 rounded-lg border-none"
               >
                 <option value={"popular"} className="custom-option">
-                  Popular
+                  All Category
                 </option>
                 <option value={""} className="custom-option">
-                  Student
+                  All Category
                 </option>
               </select>
             </div>
