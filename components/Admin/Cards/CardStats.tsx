@@ -34,7 +34,7 @@ export default function CardStats({
               <h5 className="capitalize font-bold text-xs">{statSubtitle}</h5>
             </div>
           </div>
-          <p className="text-sm  justify-between mt-4">
+          <div className="text-sm  justify-between mt-4">
             <div className="w-5/6 inline-block">
               <Progress progress={parseInt(statPercent)} />
             </div>
@@ -50,7 +50,7 @@ export default function CardStats({
               ></i>{" "}
               {statPercent}%
             </span>
-          </p>
+          </div>
         </div>
       </div>
     </>
