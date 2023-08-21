@@ -1,11 +1,23 @@
 "use client";
 import About from "@/components/Admin/Account/About";
 import PersonalInfo from "@/components/Admin/Account/PersonalInfo";
+import Axios from "@/utils/Axios";
 import { Breadcrumb } from "flowbite-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { HiHome } from "react-icons/hi";
 
-export default function page() {
+export default function Page() {
+  const [userData, setUserData] = React.useState<any>(null);
+  useEffect(() => {
+    Axios.get("/api/v1/user/details")
+      .then((res) => {
+        setUserData(res.data.user_data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="">
       <div>
@@ -22,7 +34,7 @@ export default function page() {
           <About />
         </div>
         <div className="md:col-span-8">
-          <PersonalInfo />
+          <PersonalInfo userData={userData} />
         </div>
       </div>
     </div>
