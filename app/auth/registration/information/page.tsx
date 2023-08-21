@@ -13,6 +13,7 @@ export default function Page() {
     position: "teacher",
     institution_name: "",
     work_time: "part_time",
+    education_level: "",
   });
   const router = useRouter();
 
@@ -82,46 +83,44 @@ export default function Page() {
             </select>
           </div>
         </div>
-        {form.position === "teacher" && (
-          <div className="">
-            <div className="mb-2 block">
-              <Label
-                htmlFor="institution_name"
-                value="Institute Name"
-                className="text-2xl"
-              />
-            </div>
-            <div className="relative">
-              <select
-                name="institution_name"
-                id="institution_name"
-                defaultValue={form.institution_name}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    institution_name: e.target.value,
-                  })
-                }
-                className="border w-full rounded-lg px-4 py-6 focus:outline-none
-            focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
-                <option value={0} className="custom-option">
-                  Select institution_name Name
-                </option>
-                {institution_names.map((institution_name) => (
-                  <option
-                    key={institution_name.id}
-                    value={institution_name.value}
-                    className="custom-option"
-                  >
-                    {institution_name.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+        <div className="">
+          <div className="mb-2 block">
+            <Label
+              htmlFor="institution_name"
+              value="Institute Name"
+              className="text-2xl"
+            />
           </div>
-        )}
-        {form.institution_name ? (
+          <div className="relative">
+            <select
+              name="institution_name"
+              id="institution_name"
+              defaultValue={form.institution_name}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  institution_name: e.target.value,
+                })
+              }
+              className="border w-full rounded-lg px-4 py-6 focus:outline-none
+            focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              <option value={0} className="custom-option">
+                Select institution_name Name
+              </option>
+              {institution_names.map((institution_name) => (
+                <option
+                  key={institution_name.id}
+                  value={institution_name.value}
+                  className="custom-option"
+                >
+                  {institution_name.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        {form.position === "teacher" ? (
           <div className="">
             <div className="mb-2 block">
               <Label
@@ -160,7 +159,46 @@ export default function Page() {
               </select>
             </div>
           </div>
-        ) : null}
+        ) : (
+          <div className="">
+            <div className="mb-2 block">
+              <Label
+                htmlFor="education_level"
+                value="Education Level"
+                className="text-2xl"
+              />
+            </div>
+            <div className="relative">
+              <select
+                name="education_level"
+                id="education_level"
+                defaultValue={form.education_level}
+                onChange={(e) =>
+                  setForm({ ...form, education_level: e.target.value })
+                }
+                className="border w-full rounded-lg px-4 py-6 focus:outline-none
+            focus:ring-2 focus:ring-primary focus:border-transparent"
+              >
+                <option
+                  value={0}
+                  selected
+                  className="custom-option"
+                  style={{
+                    padding: "10px 15px",
+                  }}
+                >
+                  Select Education Level
+                </option>
+                <option value={"full_time"} className="custom-option">
+                  Higher Secondary School Certificate (HSC)
+                </option>
+                <option value={"part_time"} className="custom-option">
+                  Secondary School Certificate (SSC )
+                </option>
+              </select>
+            </div>
+          </div>
+        )}
         <Button
           type="submit"
           className="bg-primary py-6 px-4 hover:bg-secondary"
