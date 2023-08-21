@@ -1,14 +1,19 @@
 import Image from "next/image";
 import React from "react";
 
-export default function About() {
+interface User {
+  name: string;
+  positon: string;
+}
+export default function About({ user }: { user: User }) {
+  console.log(user);
   return (
     <div className="px-5 py-12 shadow-xl">
       <div className="h-[200px] w-[200px] relative flex justify-center items-center ">
         <Image src={"/"} alt="profile" fill />
       </div>
       <h2 className="text-h3 text-center mb-12 mt-[37px]">
-        Dr. Johirul Islam Nishat
+        {user ? user?.name : "Neamul"}
       </h2>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">

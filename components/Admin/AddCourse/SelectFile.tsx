@@ -1,8 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-export default function SelectFile({ height }: { height: string }) {
+export default function SelectFile({
+  height,
+  setFile,
+}: {
+  height: string;
+  setFile?: React.Dispatch<React.SetStateAction<File | null>>;
+}) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +31,10 @@ export default function SelectFile({ height }: { height: string }) {
   const handleRemoveFile = () => {
     setSelectedFile(null);
   };
+
+  useEffect(() => {
+    if (setFile) setFile(selectedFile);
+  }, [selectedFile, setFile]);
   return (
     <div
       className={`${twMerge(

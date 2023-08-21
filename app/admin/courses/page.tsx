@@ -34,9 +34,9 @@ export default function Page() {
           <Breadcrumb.Item href="#">Courses</Breadcrumb.Item>
         </Breadcrumb>
       </div>
-      <div className="md:px-12 px-2 py-8 mt-8 shadow-lg rounded-lg flex flex-col gap-8">
+      <div className="lg:px-12 px-2 py-8 mt-8 shadow-lg rounded-lg flex flex-col gap-8">
         <div className="w-full flex justify-between">
-          <div className="flex gap-7 flex-wrap md:flex-nowrap">
+          <div className="flex gap-7 flex-wrap lg:flex-nowrap">
             <div className="flex items-center gap-2 shadow-xl px-7 py-4 rounded-lg">
               <p className="font-semibold whitespace-nowrap">Sort By:</p>
               <select
@@ -87,7 +87,7 @@ export default function Page() {
           </div>
           <div className=""></div>
         </div>
-        <div className="grid md:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-12">
           {courses?.map((item: ICourse, index: number) => (
             <div
               key={index}
