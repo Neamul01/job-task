@@ -8,7 +8,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { HiInformationCircle } from "react-icons/hi";
 
 export default function Page() {
-  const { user, setUser } = useUserContext();
+  const { setUser } = useUserContext();
   const [formData, setFormData] = React.useState({
     email: "",
     password: "",
