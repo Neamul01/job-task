@@ -1,15 +1,28 @@
 "use client";
 import Course from "@/components/Admin/Courses/Course";
+import { ICourse } from "@/types";
+import Axios from "@/utils/Axios";
 import { Breadcrumb, Button } from "flowbite-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineVideoCamera } from "react-icons/ai";
 import { HiHome } from "react-icons/hi";
 
 export default function Page() {
+  const [courses, setCourses] = useState<any>(null);
   const [form, setForm] = useState({
     popular: "popular",
   });
+
+  useEffect(() => {
+    Axios.post("/api/v1/course/list", { perpage: 10, page: 1 })
+      .then((res) => {
+        setCourses(res.data.send_res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className="">
       <div>
@@ -42,24 +55,20 @@ export default function Page() {
               </select>
             </div>
             <div className="flex items-center gap-2 shadow-xl px-7 py-4 rounded-lg">
-              <p className="font-semibold whitespace-nowrap">Sort By:</p>
+              <p className="font-semibold whitespace-nowrap">Courses</p>
               <select
                 name="popular"
                 id="popular"
                 defaultValue={form.popular}
                 onChange={(e) => setForm({ ...form, popular: e.target.value })}
-                className="w-32 rounded-lg border-none"
+                className="w-3 rounded-lg border-none"
               >
-                <option value={"popular"} className="custom-option">
-                  Popular
-                </option>
-                <option value={""} className="custom-option">
-                  Student
-                </option>
+                <option value={"popular"} className="custom-option"></option>
+                <option value={""} className="custom-option"></option>
               </select>
             </div>
             <div className="flex items-center gap-2 shadow-xl px-7 py-4 rounded-lg">
-              <p className="font-semibold whitespace-nowrap">Sort By:</p>
+              <p className="font-semibold whitespace-nowrap">Category:</p>
               <select
                 name="popular"
                 id="popular"
@@ -68,10 +77,10 @@ export default function Page() {
                 className="w-32 rounded-lg border-none"
               >
                 <option value={"popular"} className="custom-option">
-                  Popular
+                  All Category
                 </option>
                 <option value={""} className="custom-option">
-                  Student
+                  All Category
                 </option>
               </select>
             </div>
@@ -79,9 +88,14 @@ export default function Page() {
           <div className=""></div>
         </div>
         <div className="grid md:grid-cols-12 gap-12">
-          <div className="col-span-3 h-[340px] px-2 py-4  flex flex-col justify-between shadow-lg rounded-lg">
-            <Course />
-          </div>
+          {courses?.map((item: ICourse, index: number) => (
+            <div
+              key={index}
+              className="col-span-3 h-[340px] px-2 py-4  flex flex-col justify-between shadow-lg rounded-lg"
+            >
+              <Course course={item} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

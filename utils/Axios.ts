@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const instance = axios.create({
-  baseURL: "https://job-task-server.onrender.com/",
+const Axios = axios.create({
+  baseURL: "https://job-task-server.onrender.com",
 });
 
 // Request interceptor
-instance.interceptors.request.use(
+Axios.interceptors.request.use(
   (config) => {
     const accessToken = localStorage.getItem("access_token");
 
@@ -23,7 +23,7 @@ instance.interceptors.request.use(
 );
 
 // Response interceptor
-instance.interceptors.response.use(
+Axios.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -33,4 +33,4 @@ instance.interceptors.response.use(
   }
 );
 
-export default instance;
+export default Axios;
