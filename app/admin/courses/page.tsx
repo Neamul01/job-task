@@ -1,15 +1,28 @@
 "use client";
 import Course from "@/components/Admin/Courses/Course";
+import { ICourse } from "@/types";
+import Axios from "@/utils/Axios";
 import { Breadcrumb, Button } from "flowbite-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineVideoCamera } from "react-icons/ai";
 import { HiHome } from "react-icons/hi";
 
 export default function Page() {
+  const [courses, setCourses] = useState<any>(null);
   const [form, setForm] = useState({
     popular: "popular",
   });
+
+  useEffect(() => {
+    Axios.post("/api/v1/course/list", { perpage: 10, page: 1 })
+      .then((res) => {
+        setCourses(res.data.send_res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className="">
       <div>
@@ -79,9 +92,14 @@ export default function Page() {
           <div className=""></div>
         </div>
         <div className="grid md:grid-cols-12 gap-12">
-          <div className="col-span-3 h-[340px] px-2 py-4  flex flex-col justify-between shadow-lg rounded-lg">
-            <Course />
-          </div>
+          {courses?.map((item: ICourse, index: number) => (
+            <div
+              key={index}
+              className="col-span-3 h-[340px] px-2 py-4  flex flex-col justify-between shadow-lg rounded-lg"
+            >
+              <Course course={item} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

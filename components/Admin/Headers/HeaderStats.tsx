@@ -5,10 +5,8 @@ import CardStats from "@/components/Admin/Cards/CardStats";
 import { AiOutlineBarChart } from "react-icons/ai";
 
 export default function HeaderStats({ data }: { data: Statics[] }) {
-  console.log(data);
   return (
     <>
-      {/* Header */}
       <div>
         {/* Card stats */}
         <div className="flex flex-wrap">
