@@ -18,10 +18,10 @@ export default function page() {
         </Breadcrumb>
       </div>
       <div className="grid md:grid-cols-2 gap-11 px-12 py-8 mt-8 shadow-lg rounded-lg">
-        <div className="col-span-1">
+        <div className="md:col-span-1">
           <FileUpload />
         </div>
-        <div className="col-span-1">
+        <div className="md:col-span-1">
           <OtherInfo />
         </div>
 
