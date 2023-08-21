@@ -4,8 +4,8 @@ import React from "react";
 
 export default function AppLogo() {
   return (
-    <div className="md:h-[42px] md:w-[154px] relative">
-      <Link href={"/"} className="w-44 cursor-pointer">
+    <div className="h-[42px] w-[154px] my-3 md:my-0 relative">
+      <Link href={"/admin/dashboard"} className="w-44 cursor-pointer">
         <Image
           priority
           fill

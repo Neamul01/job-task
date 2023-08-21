@@ -35,9 +35,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [path]);
 
   return (
-    <PageLayout className="mt-[100px] ">
+    <PageLayout className="my-[100px] ">
       <div className="md:w-[1000px] md:h-[767px] mx-auto ">
-        <div className="flex gap-4 mb-12">
+        <div className="flex flex-wrap md:flex-nowrap gap-4 mb-12">
           {Object.keys(tabs).map((tab, i) => {
             return (
               <div

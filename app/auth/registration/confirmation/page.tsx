@@ -16,7 +16,7 @@ export default function Page() {
       </p>
       <button
         className="border border-primary px-4 py-6 text-2xl w-[318px] rounded-lg hover:bg-primary hover:text-white "
-        onClick={() => router.push("/")}
+        onClick={() => router.push("/admin/dashboard")}
       >
         Go to Home
       </button>
