@@ -1,5 +1,5 @@
 "use client";
-import Axios from "@/instances/Axios";
+import Axios from "@/utils/Axios";
 import { Alert, Button, Label } from "flowbite-react";
 import Link from "next/link";
 import React from "react";
@@ -16,10 +16,9 @@ export default function Page() {
     e.preventDefault();
     Axios.post("/api/v1/user/login", formData)
       .then((res) => {
-        if (res.data.status === "success") {
-          localStorage.setItem("access_token", res.data.data.token);
-          window.location.href = "/";
-        }
+        console.log(res);
+        localStorage.setItem("access_token", res.data.data.token);
+        window.location.href = "/";
       })
       .catch((err) => {
         <Alert color="failure" icon={HiInformationCircle}>
@@ -81,7 +80,7 @@ export default function Page() {
         <div className="w-full flex justify-center">
           Don’t Have An Account?{" "}
           <Link
-            href={"/auth/registration"}
+            href={"/auth/registration/information"}
             className="ml-1 text-primary underline"
           >
             Register Now
