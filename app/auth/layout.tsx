@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import PageLayout from "@/components/Layouts/Layout/PageLayout";
+import { useActivePaths } from "@/hooks/useActivePaths";
 
 const tabs = {
   information: "information",
@@ -13,6 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [active, setActive] = React.useState<string | undefined>("information");
   const router = useRouter();
   const path = usePathname();
+  const activePaths = useActivePaths();
 
   const handleClick = (tab: string) => {
     console.log(tab);
@@ -37,29 +39,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <PageLayout className="my-[100px] ">
       <div className="md:w-[1000px] md:h-[767px] mx-auto ">
-        <div className="flex flex-wrap md:flex-nowrap gap-4 mb-12">
-          {Object.keys(tabs).map((tab, i) => {
-            return (
-              <div
-                key={tab}
-                className="flex items-center relative w-full justify-between"
-              >
+        {activePaths.includes("/login") ? null : (
+          <div className="flex flex-wrap md:flex-nowrap gap-4 mb-12">
+            {Object.keys(tabs).map((tab, i) => {
+              return (
                 <div
-                  className={`h-12 w-12 rounded-full flex justify-center items-center border text-black cursor-pointer ${
-                    active === tab ? " bg-primary text-white" : ""
-                  }`}
-                  onClick={() => handleClick(tab)}
+                  key={tab}
+                  className="flex items-center relative w-full justify-between"
                 >
-                  {i + 1}
+                  <div
+                    className={`h-12 w-12 rounded-full flex justify-center items-center border text-black cursor-pointer ${
+                      active === tab ? " bg-primary text-white" : ""
+                    }`}
+                    onClick={() => handleClick(tab)}
+                  >
+                    {i + 1}
+                  </div>
+                  <span className="relative z-10 bg-white px-2 capitalize">
+                    {tabs[tab as keyof typeof tabs]}
+                  </span>
+                  <div className="absolute left-16 w-48 h-[1px] bg-gray-900 transform "></div>
                 </div>
-                <span className="relative z-10 bg-white px-2 capitalize">
-                  {tabs[tab as keyof typeof tabs]}
-                </span>
-                <div className="absolute left-16 w-48 h-[1px] bg-gray-900 transform "></div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
         {children}
       </div>
     </PageLayout>
