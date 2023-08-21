@@ -124,7 +124,7 @@ const adminPages = [
   {
     id: 2,
     name: "Courses",
-    href: "/admin/course",
+    href: "/admin/courses",
     icon: AiOutlineUnorderedList,
   },
   {
