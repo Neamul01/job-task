@@ -1,4 +1,5 @@
 "use client";
+import Course from "@/components/Admin/Courses/Course";
 import { Breadcrumb, Button } from "flowbite-react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -79,23 +80,7 @@ export default function Page() {
         </div>
         <div className="grid md:grid-cols-12 gap-12">
           <div className="col-span-3 h-[340px] px-2 py-4  flex flex-col justify-between shadow-lg rounded-lg">
-            <div className="">
-              <div className="w-[322px] h-[215px] rounded-lg overflow-hidden relative ">
-                <Image src={"/"} alt="product" fill />
-              </div>
-              <p className="font-semibold text-[15px] ">
-                Learning Maxon 4D Training Course
-              </p>
-            </div>
-            <div className="text-black/30 flex justify-between">
-              <div className="flex items-center">
-                <AiOutlineVideoCamera className="text-[19px]" />
-                <p className="text-[14px] ">15 Lessons (10h 5m)</p>
-              </div>
-              <div>
-                <Button className="bg-primary text-white">$140</Button>
-              </div>
-            </div>
+            <Course />
           </div>
         </div>
       </div>
