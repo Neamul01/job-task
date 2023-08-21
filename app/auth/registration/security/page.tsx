@@ -25,7 +25,6 @@ export default function Page() {
       Axios.post("/api/v1/user/register", { ...data })
         .then((res) => {
           console.log(res);
-          // localStorage.setItem("access_token", res.data.data.token);
           router.push("/auth/registration/confirmation");
         })
         .catch((err) => {

@@ -6,7 +6,7 @@ export default function CardStats({
   statSubtitle = "Traffic",
   statTitle = "350,897",
   statArrow = "up",
-  statPercent = "3.48",
+  statPercent = 3.48,
   statPercentColor = "text-emerald-500",
   statDescripiron = "Since last month",
   statIconName = "far fa-chart-bar",
@@ -36,7 +36,7 @@ export default function CardStats({
           </div>
           <div className="text-sm  justify-between mt-4">
             <div className="w-5/6 inline-block">
-              <Progress progress={parseInt(statPercent)} />
+              <Progress progress={statPercent} />
             </div>
             <span className={statPercentColor + " "}>
               <i
@@ -61,7 +61,7 @@ type CardStats = {
   statSubtitle: string;
   statTitle: string;
   statArrow: "up" | "down";
-  statPercent: string;
+  statPercent: number;
   // can be any of the text color utilities
   // from tailwindcss
   statPercentColor: string;
