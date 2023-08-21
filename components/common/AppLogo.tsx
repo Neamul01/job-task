@@ -4,7 +4,7 @@ import React from "react";
 
 export default function AppLogo() {
   return (
-    <div className="h-[42px] w-[154px] relative">
+    <div className="md:h-[42px] md:w-[154px] relative">
       <Link href={"/"} className="w-44 cursor-pointer">
         <Image
           priority

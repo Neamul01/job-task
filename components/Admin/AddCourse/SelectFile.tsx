@@ -61,7 +61,7 @@ export default function SelectFile({ height }: { height: string }) {
                 />
               </svg>
             </div>
-            <span className="text-gray-500">
+            <span className="text-gray-500 text-center flex">
               Drop files here or click to upload.
             </span>
           </label>

@@ -10,7 +10,7 @@ export default function MainNavbar() {
     <>
       {activePath.includes("/admin") ? null : (
         <Layout parentClass="border-b" className="flex items-center px">
-          <div className="px-6 py-[29px]">
+          <div className="px-6 md:py-[29px]">
             <AppLogo />
           </div>
         </Layout>

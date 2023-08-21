@@ -7,7 +7,7 @@ export default function Course() {
   return (
     <>
       <div className="">
-        <div className="w-[322px] h-[215px] rounded-lg overflow-hidden relative ">
+        <div className="md:w-[322px] h-[215px] rounded-lg overflow-hidden relative ">
           <Image src={"/"} alt="product" fill />
         </div>
         <p className="font-semibold text-[15px] ">

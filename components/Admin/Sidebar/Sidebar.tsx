@@ -50,7 +50,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl h-screen bg-gradient-to-tr from-[#9C41D1] to-[#418CD1] flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl md:h-screen bg-gradient-to-tr from-[#9C41D1] to-[#418CD1] flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between md:justify-normal w-full mx-auto">
           {/* Toggler */}
           {collapseMenu}
@@ -79,11 +79,11 @@ export default function Sidebar() {
           {collapseShow === false ? null : (
             <div
               className={
-                "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded bg-white m-2 py-3 px-6"
+                "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded py-3 md:px-6 px-2 pt-0 bg-gray-400"
               }
             >
               {/* Collapse header */}
-              <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
+              <div className="md:min-w-full md:hidden block pb-8 mt-4 border-b border-solid bg-primary">
                 <div className="flex flex-wrap justify-between">
                   <div className="flex justify-end">{collapseMenu}</div>
                   <AppLogo />
