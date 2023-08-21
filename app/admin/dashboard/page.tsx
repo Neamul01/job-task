@@ -8,7 +8,7 @@ export default function Dashboard() {
   const [statics, setStatics] = React.useState<any>(null);
   useEffect(() => {
     Axios.post("/api/v1/dashboard/statics").then((res) => {
-      // console.log(res.data.statics);
+      console.log(res.data.statics);
       setStatics(res.data.statics);
     });
   }, []);
