@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import SelectFile from "./SelectFile";
-import { Button } from "flowbite-react";
 
 type FileType = {
   main_course_file: File | null;
   thumbnail_file: File | null;
   introduction_file: File | null;
 };
-export default function FileUpload() {
+
+type Props = {
+  setAllFiles: (file: FileType) => void;
+  handleSubmit: any;
+};
+
+export default function FileUpload({ setAllFiles, handleSubmit }: Props) {
   const [file, setFile] = React.useState<File | null>(null);
   const [thumbnail, setThumbnail] = React.useState<File | null>(null);
   const [intro, setIntro] = React.useState<File | null>(null);
@@ -17,6 +22,10 @@ export default function FileUpload() {
     introduction_file: null,
   });
 
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setAllFiles(files);
+  };
   useEffect(() => {
     setFiles({
       main_course_file: file,
@@ -26,7 +35,7 @@ export default function FileUpload() {
   }, [file, thumbnail, intro]);
 
   return (
-    <form>
+    <form onSubmit={handleFormSubmit}>
       <h3 className="text-h3">File Upload</h3>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col ">
