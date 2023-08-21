@@ -1,14 +1,42 @@
 "use client";
-import { Button, Label } from "flowbite-react";
+import Axios from "@/instances/Axios";
+import { Alert, Button, Label } from "flowbite-react";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { HiInformationCircle } from "react-icons/hi";
 
-export default function page() {
+export default function Page() {
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    Axios.post("/api/v1/user/login", formData)
+      .then((res) => {
+        if (res.data.status === "success") {
+          localStorage.setItem("access_token", res.data.data.token);
+          window.location.href = "/";
+        }
+      })
+      .catch((err) => {
+        <Alert color="failure" icon={HiInformationCircle}>
+          <span>
+            <p>
+              <span className="font-medium">Error!</span>
+              {err.message}
+            </p>
+          </span>
+        </Alert>;
+        console.log(err);
+      });
+  };
   return (
     <div className="mx-auto md:w-[800px] md:h-[588px] px-2 md:px-0 flex flex-col">
       <h1 className="text-center text-h1 mb-20">Welcome To Task Job</h1>
-      <form className="flex flex-col gap-6">
+      <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
         <div className="">
           <div className="mb-2 block">
             <Label htmlFor="email" value="Email Address" className="text-2xl" />
@@ -17,6 +45,9 @@ export default function page() {
             type="text"
             name="email"
             id="email"
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             placeholder="Enter Email Address"
             className="border w-full rounded-lg px-4 py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
@@ -30,6 +61,9 @@ export default function page() {
               type="password"
               name="password"
               id="password"
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
               placeholder="Enter Password"
               className="border w-full rounded-lg px-4 py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
@@ -38,7 +72,10 @@ export default function page() {
             </div>
           </div>
         </div>
-        <Button className="bg-primary py-6 px-4 hover:bg-secondary">
+        <Button
+          className="bg-primary py-6 px-4 hover:bg-secondary"
+          type="submit"
+        >
           <span className="text-2xl">Login</span>
         </Button>
         <div className="w-full flex justify-center">
@@ -47,7 +84,6 @@ export default function page() {
             href={"/auth/registration"}
             className="ml-1 text-primary underline"
           >
-            {" "}
             Register Now
           </Link>
         </div>
