@@ -11,7 +11,7 @@ export default function HeaderStats({ data }: { data: Statics[] }) {
       <div>
         {/* Card stats */}
         <div className="flex flex-wrap">
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <div key={index} className="w-full lg:w-6/12 xl:w-3/12 px-4">
               <CardStats
                 statSubtitle={item.title}
