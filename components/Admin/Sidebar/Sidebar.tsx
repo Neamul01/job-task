@@ -6,6 +6,9 @@ import { usePathname } from "next/navigation";
 import NotificationDropdown from "@/components/Admin/Dropdowns/NotificationDropdown";
 import UserDropdown from "@/components/Admin/Dropdowns/UserDropdown";
 import AppLogo from "@/components/common/AppLogo";
+import { AiOutlineHome, AiOutlineUnorderedList } from "react-icons/ai";
+import { BsPerson } from "react-icons/bs";
+import { BiLogOut } from "react-icons/bi";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState(false);
@@ -17,20 +20,18 @@ export default function Sidebar() {
         <Link
           href={page.href}
           className={
-            "text-xs uppercase py-3 font-bold block " +
+            "text-xs uppercase py-3 font-bold flex items-center my-4 text-white pl-3" +
             (router.indexOf(page.href) !== -1
-              ? "text-primary bg-secondary/10 rounded-lg hover:text-lightBlue-600"
-              : "text-secondary/80 hover:text-blueGray-500")
+              ? " bg-white/20 rounded-lg"
+              : " hover:text-secondary")
           }
         >
-          <i
+          <page.icon
             className={
-              "fas fa-tv mr-2 text-sm " +
-              (router.indexOf(page.href) !== -1
-                ? "opacity-75"
-                : "text-blueGray-300")
+              "mr-2 text-sm text-white " +
+              (router.indexOf(page.href) !== -1 ? "opacity-75" : "")
             }
-          ></i>{" "}
+          ></page.icon>
           {page.name}
         </Link>
       </li>
@@ -49,7 +50,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl h-screen bg-gradient-to-tr from-[#9C41D1] to-[#418CD1] flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between md:justify-normal w-full mx-auto">
           {/* Toggler */}
           {collapseMenu}
@@ -117,16 +118,34 @@ const adminPages = [
   {
     id: 1,
     name: "Dashboard",
-    href: "/admin/dashboard",
+    href: "/dashboard",
+    icon: AiOutlineHome,
   },
   {
     id: 2,
-    name: "Customers",
-    href: "/admin/customers",
+    name: "Courses",
+    href: "/course",
+    icon: AiOutlineUnorderedList,
   },
   {
     id: 3,
-    name: "Products",
-    href: "/admin/products",
+    name: "Add New Course",
+    href: "/add-new-course",
+    icon: AiOutlineUnorderedList,
+  },
+  {
+    id: 4,
+    name: "Account",
+    href: "/account",
+    icon: BsPerson,
+  },
+  {
+    id: 5,
+    name: "Logout",
+    href: "/",
+    icon: BiLogOut,
+    acrion: () => {
+      console.log("logout");
+    },
   },
 ];
