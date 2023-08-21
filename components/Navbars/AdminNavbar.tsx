@@ -1,7 +1,6 @@
 import React from "react";
 
 import UserDropdown from "@/components/Admin/Dropdowns/UserDropdown";
-import AppLogo from "../common/AppLogo";
 
 export default function Navbar() {
   return (

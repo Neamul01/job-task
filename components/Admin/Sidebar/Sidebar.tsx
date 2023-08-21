@@ -118,25 +118,25 @@ const adminPages = [
   {
     id: 1,
     name: "Dashboard",
-    href: "/dashboard",
+    href: "/admin/dashboard",
     icon: AiOutlineHome,
   },
   {
     id: 2,
     name: "Courses",
-    href: "/course",
+    href: "/admin/course",
     icon: AiOutlineUnorderedList,
   },
   {
     id: 3,
     name: "Add New Course",
-    href: "/add-new-course",
+    href: "/admin/addcourse",
     icon: AiOutlineUnorderedList,
   },
   {
     id: 4,
     name: "Account",
-    href: "/account",
+    href: "/admin/account",
     icon: BsPerson,
   },
   {

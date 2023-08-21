@@ -8,7 +8,7 @@ export default function MainNavbar() {
   const activePath = useActivePaths();
   return (
     <>
-      {activePath.includes("/dashboard") ? null : (
+      {activePath.includes("/admin") ? null : (
         <Layout parentClass="border-b" className="flex items-center px">
           <div className="px-6 py-[29px]">
             <AppLogo />
