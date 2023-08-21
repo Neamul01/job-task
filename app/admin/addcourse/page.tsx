@@ -35,14 +35,14 @@ export default function Page() {
           <Breadcrumb.Item href="#">Upload New Course</Breadcrumb.Item>
         </Breadcrumb>
       </div>
-      <div className="grid md:grid-cols-2 gap-11 md:px-12 px-2 py-8 mt-8 shadow-lg rounded-lg">
-        <div className="md:col-span-1">
+      <div className="grid lg:grid-cols-2 gap-11 lg:px-12 px-2 py-8 mt-8 shadow-lg rounded-lg">
+        <div className="lg:col-span-1">
           <FileUpload
             setAllFiles={handleFileChange}
             handleSubmit={setHandleSubmit}
           />
         </div>
-        <div className="md:col-span-1">
+        <div className="lg:col-span-1">
           <OtherInfo />
         </div>
 

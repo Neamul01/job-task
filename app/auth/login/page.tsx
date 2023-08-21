@@ -1,4 +1,5 @@
 "use client";
+import { useUserContext } from "@/contexts/userContext";
 import Axios from "@/utils/Axios";
 import { Alert, Button, Label } from "flowbite-react";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { HiInformationCircle } from "react-icons/hi";
 
 export default function Page() {
+  const { user, setUser } = useUserContext();
   const [formData, setFormData] = React.useState({
     email: "",
     password: "",
@@ -16,8 +18,9 @@ export default function Page() {
     e.preventDefault();
     Axios.post("/api/v1/user/login", formData)
       .then((res) => {
-        console.log(res);
+        console.log(res.data.data);
         localStorage.setItem("access_token", res.data.data.token);
+        setUser(res.data.data);
         window.location.href = "/";
       })
       .catch((err) => {
@@ -29,7 +32,6 @@ export default function Page() {
             </p>
           </span>
         </Alert>;
-        console.log(err);
       });
   };
   return (
