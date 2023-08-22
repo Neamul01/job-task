@@ -38,8 +38,8 @@ export default function SelectFile({
   return (
     <div
       className={`${twMerge(
-        `flex flex-col items-center justify-center p-4 border border-dashed border-gray-400 rounded-lg space-y-4 h-[300px] ${
-          height && `h-[${height}]`
+        `flex flex-col items-center justify-center p-4 border border-dashed border-gray-400 rounded-lg space-y-4 h-[100px] ${
+          height && `lg:h-[${height}]`
         }`
       )}`}
       onDrop={handleDrop}
@@ -55,7 +55,7 @@ export default function SelectFile({
       ) : (
         <>
           <label htmlFor="fileInput" className="cursor-pointer">
-            <div className="relative h-16 flex items-center w-full">
+            <div className="relative xl:h-16 md:h-10 h-8 flex items-center w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-full w-full text-gray-300"
@@ -71,7 +71,7 @@ export default function SelectFile({
                 />
               </svg>
             </div>
-            <span className="text-gray-500 text-center flex">
+            <span className="text-gray-500 text-center flex text-sm xl:text-base ">
               Drop files here or click to upload.
             </span>
           </label>

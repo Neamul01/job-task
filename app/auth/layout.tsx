@@ -37,18 +37,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [path]);
 
   return (
-    <PageLayout className="my-[100px] ">
+    <PageLayout className="md:my-[100px] my-10 ">
       <div className="md:w-[1000px] md:h-[767px] mx-auto ">
         {activePaths.includes("/login") ? null : (
-          <div className="flex flex-wrap md:flex-nowrap gap-4 mb-12">
+          <div className="flex flex-wrap md:flex-nowrap justify-center gap-4 mb-12">
             {Object.keys(tabs).map((tab, i) => {
               return (
                 <div
                   key={tab}
-                  className="flex items-center relative w-full justify-between"
+                  className="flex items-center relative w-3/5 md:w-full justify-between"
                 >
                   <div
-                    className={`h-12 w-12 rounded-full flex justify-center items-center border text-black cursor-pointer ${
+                    className={`md:h-12 md:w-12 h-6 w-6 rounded-full flex justify-center items-center border text-black cursor-pointer ${
                       active === tab ? " bg-primary text-white" : ""
                     }`}
                     onClick={() => handleClick(tab)}
@@ -58,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <span className="relative z-10 bg-white px-2 capitalize">
                     {tabs[tab as keyof typeof tabs]}
                   </span>
-                  <div className="absolute left-16 w-48 h-[1px] bg-gray-900 transform "></div>
+                  <div className="absolute md:left-16 left-6 md:w-48 w-16 h-[1px] bg-gray-900 transform "></div>
                 </div>
               );
             })}

@@ -19,7 +19,7 @@ export default function Course({ course }: { course: ICourse }) {
           <p className="text-[14px] ">15 Lessons (10h 5m)</p>
         </div>
         <div>
-          <Button className="bg-primary text-white">{course.price}</Button>
+          <Button className="bg-primary text-white">${course.price}</Button>
         </div>
       </div>
     </>

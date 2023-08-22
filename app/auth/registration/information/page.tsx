@@ -26,7 +26,7 @@ export default function Page() {
   return (
     <div className="md:max-w-registration md:h-[469px] mx-auto">
       <div className="flex flex-col gap-6">
-        <h1 className="text-h1 capitalize flex justify-center font-semibold">
+        <h1 className="md:text-h1 text-2xl mb-8 md:mb-0 capitalize flex justify-center font-semibold">
           personal information
         </h1>
       </div>
@@ -36,7 +36,7 @@ export default function Page() {
             <Label
               htmlFor="full_name"
               value="Full Name "
-              className="text-2xl"
+              className="md:text-2xl"
             />
           </div>
           <input
@@ -45,12 +45,16 @@ export default function Page() {
             id="full_name"
             onChange={(e) => setForm({ ...form, full_name: e.target.value })}
             placeholder="Enter Full Name "
-            className="border w-full rounded-lg px-4 py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
         <div className="">
           <div className="mb-2 block">
-            <Label htmlFor="email" value="Email Address" className="text-2xl" />
+            <Label
+              htmlFor="email"
+              value="Email Address"
+              className="md:text-2xl"
+            />
           </div>
           <input
             type="email"
@@ -58,12 +62,16 @@ export default function Page() {
             id="email"
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="Enter Email Address"
-            className="border w-full rounded-lg px-4 py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
         <div className="">
           <div className="mb-2 block">
-            <Label htmlFor="position" value="Position" className="text-2xl" />
+            <Label
+              htmlFor="position"
+              value="Position"
+              className="md:text-2xl"
+            />
           </div>
           <div className="relative">
             <select
@@ -71,7 +79,7 @@ export default function Page() {
               id="position"
               defaultValue={form.position}
               onChange={(e) => setForm({ ...form, position: e.target.value })}
-              className="border w-full rounded-lg px-4 py-6 focus:outline-none
+              className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               <option value={"teacher"} className="custom-option">
@@ -88,7 +96,7 @@ export default function Page() {
             <Label
               htmlFor="institution_name"
               value="Institute Name"
-              className="text-2xl"
+              className="md:text-2xl"
             />
           </div>
           <div className="relative">
@@ -102,7 +110,7 @@ export default function Page() {
                   institution_name: e.target.value,
                 })
               }
-              className="border w-full rounded-lg px-4 py-6 focus:outline-none
+              className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               <option value={0} className="custom-option">
@@ -126,7 +134,7 @@ export default function Page() {
               <Label
                 htmlFor="work_time"
                 value="Work Time"
-                className="text-2xl"
+                className="md:text-2xl"
               />
             </div>
             <div className="relative">
@@ -137,7 +145,7 @@ export default function Page() {
                 onChange={(e) =>
                   setForm({ ...form, work_time: e.target.value })
                 }
-                className="border w-full rounded-lg px-4 py-6 focus:outline-none
+                className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 <option
@@ -165,7 +173,7 @@ export default function Page() {
               <Label
                 htmlFor="education_level"
                 value="Education Level"
-                className="text-2xl"
+                className="md:text-2xl"
               />
             </div>
             <div className="relative">
@@ -176,7 +184,7 @@ export default function Page() {
                 onChange={(e) =>
                   setForm({ ...form, education_level: e.target.value })
                 }
-                className="border w-full rounded-lg px-4 py-6 focus:outline-none
+                className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 <option
@@ -201,18 +209,15 @@ export default function Page() {
         )}
         <Button
           type="submit"
-          className="bg-primary py-6 px-4 hover:bg-secondary"
+          className="bg-primary md:py-6 md:px-4 hover:bg-secondary"
         >
-          <span className="text-2xl">Next</span>
+          <span className="md:text-2xl">Next</span>
         </Button>
-        <div className="w-full flex justify-center">
+        <div className="w-full flex md:text-lg text-xs justify-center">
           Don’t Have An Account?{" "}
-          <Link
-            href={"/auth/registration"}
-            className="ml-1 text-primary underline"
-          >
+          <Link href={"/auth/login"} className="ml-1 text-primary underline">
             {" "}
-            Register Now
+            Login Now
           </Link>
         </div>
       </form>

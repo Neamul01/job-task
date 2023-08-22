@@ -10,9 +10,12 @@ export default function HeaderStats({ data }: { data: Statics[] }) {
     <>
       <div>
         {/* Card stats */}
-        <div className="flex flex-wrap">
+        <div className="grid md:grid-cols-12 lg:gap-2">
           {data?.map((item, index) => (
-            <div key={index} className="w-full lg:w-6/12 xl:w-3/12 px-4">
+            <div
+              key={index}
+              className="w-full md:col-span-6 xl:col-span-4 px-4"
+            >
               <CardStats
                 statSubtitle={item.title}
                 statTitle={`${item.total}`}

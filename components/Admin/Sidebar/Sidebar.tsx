@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { MouseEventHandler, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -17,23 +17,40 @@ export default function Sidebar() {
   const adminRoutes = adminPages.map((page) => {
     return (
       <li key={page.id} className="items-center">
-        <Link
-          href={page.href}
-          className={
-            "text-xs uppercase py-3 font-bold flex items-center my-4 text-white pl-3" +
-            (router.indexOf(page.href) !== -1
-              ? " bg-white/20 rounded-lg"
-              : " hover:text-secondary")
-          }
-        >
-          <page.icon
+        {page.action ? (
+          <button
+            onClick={page.action}
             className={
-              "mr-2 text-sm text-white " +
-              (router.indexOf(page.href) !== -1 ? "opacity-75" : "")
+              "text-xs uppercase py-3 font-bold flex items-center my-4 text-white pl-3 w-full"
             }
-          ></page.icon>
-          {page.name}
-        </Link>
+          >
+            <page.icon
+              className={
+                "mr-2 text-sm text-white " +
+                (router.indexOf(page.href) !== -1 ? "opacity-75" : "")
+              }
+            ></page.icon>
+            {page.name}
+          </button>
+        ) : (
+          <Link
+            href={page.href}
+            className={
+              "text-xs uppercase py-3 font-bold flex items-center my-4 text-white pl-3" +
+              (router.indexOf(page.href) !== -1
+                ? " bg-white/20 rounded-lg"
+                : " hover:text-secondary")
+            }
+          >
+            <page.icon
+              className={
+                "mr-2 text-sm text-white " +
+                (router.indexOf(page.href) !== -1 ? "opacity-75" : "")
+              }
+            ></page.icon>
+            {page.name}
+          </Link>
+        )}
       </li>
     );
   });
@@ -144,7 +161,9 @@ const adminPages = [
     name: "Logout",
     href: "/",
     icon: BiLogOut,
-    acrion: () => {
+    action: () => {
+      localStorage.removeItem("user");
+      localStorage.removeItem("access_token");
       console.log("logout");
     },
   },
