@@ -36,18 +36,18 @@ export default function FileUpload({ setAllFiles, handleSubmit }: Props) {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <h3 className="text-h3">File Upload</h3>
+      <h3 className="xl:text-h3 font-semibold text-2xl">File Upload</h3>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col ">
-          <p className="mb-[21px]">Main Course File</p>
+          <p className="mb-[21px] text-lg">Main Course File</p>
           <SelectFile height={"300px"} setFile={setFile} />
         </div>
         <div className="flex flex-col ">
-          <p className="mb-[21px] text-xl">Thumbnail File</p>
+          <p className="mb-[21px] text-lg">Thumbnail File</p>
           <SelectFile height={"70px"} setFile={setThumbnail} />
         </div>
         <div className="flex flex-col ">
-          <p className="mb-[21px] text-xl">Introduction File</p>
+          <p className="mb-[21px] text-lg">Introduction File</p>
           <SelectFile height={"70px"} setFile={setIntro} />
         </div>
       </div>
