@@ -31,11 +31,11 @@ export default function Page() {
           <Breadcrumb.Item href="#">Course</Breadcrumb.Item>
         </Breadcrumb>
       </div>
-      <div className="grid lg:grid-cols-12 gap-11 lg:px-12 px-2 py-8 mt-8 shadow-lg rounded-lg">
-        <div className="lg:col-span-4">
+      <div className="grid xl:grid-cols-12 gap-11 xl:px-12 px-2 py-8 mt-8 rounded-lg">
+        <div className="xl:col-span-4">
           <About user={user} />
         </div>
-        <div className="lg:col-span-8">
+        <div className="xl:col-span-8">
           <PersonalInfo userData={userData} />
         </div>
       </div>
