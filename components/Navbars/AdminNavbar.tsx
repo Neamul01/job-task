@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { IUser } from "@/types/User";
+import { useRouter } from "next/navigation";
 
 export default function AdminNavbar() {
   const [user, setUser] = useState<IUser>();
+  const router = useRouter();
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -72,7 +74,15 @@ export default function AdminNavbar() {
                     {user?.position}
                   </span>
                 </Dropdown.Header>
-                <button className="text-xs text-center w-full bg-secondary">
+                <button
+                  className="text-xs text-center w-full bg-secondary"
+                  onClick={() => {
+                    localStorage.removeItem("user");
+                    localStorage.removeItem("access_token");
+                    console.log("logout");
+                    router.push("/auth/login");
+                  }}
+                >
                   Log out
                 </button>
               </Dropdown>

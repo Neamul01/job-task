@@ -43,7 +43,6 @@ export default function Page() {
         </Alert>;
       });
   };
-  console.log("user", localStorage.getItem("user"));
   return (
     <div className="mx-auto md:w-[800px] md:h-[588px] px-2 md:px-0 flex flex-col">
       <h1 className="text-center md:text-h1 text-2xl md:mb-20 mb-10">

@@ -1,5 +1,5 @@
 "use client";
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -9,11 +9,13 @@ import AppLogo from "@/components/common/AppLogo";
 import { AiOutlineHome, AiOutlineUnorderedList } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
+import { IUser } from "@/types/User";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState(false);
   const path = usePathname();
   const router = useRouter();
+  const [user, setUser] = useState<IUser>();
 
   const adminPages = [
     {
@@ -54,7 +56,56 @@ export default function Sidebar() {
     },
   ];
 
-  const adminRoutes = adminPages.map((page) => {
+  const studentPages = [
+    {
+      id: 1,
+      name: "Dashboard",
+      href: "/admin/dashboard",
+      icon: AiOutlineHome,
+    },
+    {
+      id: 2,
+      name: "Dashboard",
+      href: "/student/dashboard",
+      icon: AiOutlineHome,
+    },
+    {
+      id: 3,
+      name: "Courses",
+      href: "/admin/courses",
+      icon: AiOutlineUnorderedList,
+    },
+    {
+      id: 4,
+      name: "Add New Course",
+      href: "/admin/addcourse",
+      icon: AiOutlineUnorderedList,
+    },
+    {
+      id: 5,
+      name: "Account",
+      href: "/admin/account",
+      icon: BsPerson,
+    },
+    {
+      id: 6,
+      name: "Logout",
+      href: "/",
+      icon: BiLogOut,
+      action: () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("access_token");
+        console.log("logout");
+        router.push("/auth/login");
+      },
+    },
+  ];
+
+  const mapObj = () => {
+    return (user?.position === "teacher" && adminPages) || studentPages;
+  };
+
+  const adminRoutes = mapObj().map((page) => {
     return (
       <li key={page.id} className="items-center">
         {page.action ? (
@@ -104,6 +155,10 @@ export default function Sidebar() {
       <i className="fas fa-bars"></i>i
     </button>
   );
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user") || "{}"));
+  }, []);
 
   return (
     <>
