@@ -21,14 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <RegistrationContextProvider>
-        <UserContextProvider>
-          <body className={inter.className} suppressHydrationWarning>
-            <nav>
-              <MainNavbar />
-            </nav>
-            <main>{children}</main>
-          </body>
-        </UserContextProvider>
+        <body className={inter.className} suppressHydrationWarning>
+          <nav>
+            <MainNavbar />
+          </nav>
+          <main>{children}</main>
+        </body>
       </RegistrationContextProvider>
     </html>
   );
