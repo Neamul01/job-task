@@ -72,9 +72,11 @@ export default function CourseSide() {
             </p>
           </div>
           <Button className="bg-gray-100 rounded-xl border-dashed w-full py-3">
-            <div className="flex gap-2">
-              <p className="text-2xl font-semibold text-black">USD 199.00</p>
-              <del className="text-lg text-gray-400">$250.00</del>
+            <div className="flex flex-nowrap gap-2">
+              <p className="xl:text-2xl text-xl font-semibold text-black">
+                USD 199.00
+              </p>
+              <del className="xl:text-lg text-base text-gray-400">$250.00</del>
             </div>
           </Button>
           <Button className="bg-primary py-3">

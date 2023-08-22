@@ -26,7 +26,7 @@ export default function Page() {
           <Breadcrumb.Item href="#">{params.id}</Breadcrumb.Item>
         </Breadcrumb>
       </div>
-      <div className="grid lg:grid-cols-12 gap-11 xl:px-12 px-2 py-8 mt-8 rounded-lg bg-[#f7f8fe]">
+      <div className="grid lg:grid-cols-12 xl:gap-11 lg:gap-5 xl:px-12 px-2 py-8 mt-8 rounded-lg bg-[#f7f8fe]">
         <div className="lg:col-span-8 overflow-hidden bg-white p-2 md:p-4 rounded-lg">
           <div className="rounded-lg overflow-hidden">
             <iframe
