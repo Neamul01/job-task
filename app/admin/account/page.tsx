@@ -23,7 +23,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="">
+    <div className="mt-20 md:mt-0">
       <div>
         <h2 className="text-xl font-semibold mb-4">Add New Course</h2>
         <Breadcrumb aria-label="Default breadcrumb example">

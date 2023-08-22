@@ -21,9 +21,9 @@ export default function Dashboard() {
     });
   }, []);
   return (
-    <>
+    <div className="mt-20 md:mt-0">
       <HeaderStats data={statics} />
       {chartData && <CardLineChart chartData={chartData} />}
-    </>
+    </div>
   );
 }

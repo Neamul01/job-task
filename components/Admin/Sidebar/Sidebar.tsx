@@ -58,12 +58,6 @@ export default function Sidebar() {
 
   const studentPages = [
     {
-      id: 1,
-      name: "Dashboard",
-      href: "/admin/dashboard",
-      icon: AiOutlineHome,
-    },
-    {
       id: 2,
       name: "Dashboard",
       href: "/student/dashboard",
