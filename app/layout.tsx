@@ -4,7 +4,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { RegistrationContextProvider } from "@/contexts/RegistrationContext";
-import { UserContextProvider } from "@/contexts/userContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
