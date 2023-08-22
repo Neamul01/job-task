@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import CardLineChart from "@/components/Student/CardLineChart";
 
 import HeaderStats from "@/components/Admin/Headers/HeaderStats";
 import Axios from "@/utils/Axios";
@@ -15,6 +16,7 @@ export default function Dashboard() {
   return (
     <>
       <HeaderStats data={statics} />
+      <CardLineChart />
     </>
   );
 }
