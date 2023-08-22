@@ -77,18 +77,12 @@ export default function Sidebar() {
     },
     {
       id: 4,
-      name: "Add New Course",
-      href: "/admin/addcourse",
-      icon: AiOutlineUnorderedList,
-    },
-    {
-      id: 5,
       name: "Account",
       href: "/admin/account",
       icon: BsPerson,
     },
     {
-      id: 6,
+      id: 5,
       name: "Logout",
       href: "/",
       icon: BiLogOut,

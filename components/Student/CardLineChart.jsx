@@ -1,39 +1,28 @@
 "use client";
+import { IChartData } from "@/types";
 
 import React from "react";
 import { Chart, registerables } from "chart.js";
 
-export default function CardLineChart() {
+export default function CardLineChart({ chartData }) {
   React.useEffect(() => {
     Chart.register(...registerables);
+
+    const labels = chartData?.map((dataPoint) => dataPoint.date);
+    const dataValues = chartData?.map((dataPoint) => dataPoint.watchHours);
+
     var config = {
       type: "line",
       data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-        ],
+        labels: labels,
         datasets: [
           {
-            label: new Date().getFullYear(),
-            backgroundColor: "#4c51bf",
-            borderColor: "#4c51bf",
-            data: [65, 78, 66, 44, 56, 67, 75],
+            label: "Watch Hour",
+            backgroundColor: "#6078EA3D",
+            borderColor: "#6078EA",
+            data: dataValues,
             fill: true,
-            tension: 0.4,
-          },
-          {
-            label: new Date().getFullYear() - 1,
-            fill: true,
-            tension: 0.4,
-            backgroundColor: "#fff",
-            borderColor: "#fff",
-            data: [40, 68, 86, 74, 56, 60, 87],
+            tension: 0.6,
           },
         ],
       },
