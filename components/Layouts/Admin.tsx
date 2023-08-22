@@ -14,12 +14,12 @@ export default function Admin({ children }: { children: React.ReactNode }) {
         <AdminNavbar />
         {/* Header */}
 
-        <div className="relative md:pt-32 pb-32 pt-12">
+        <div className="relative  pt-12">
           <div className="px-4 md:px-10 mx-auto w-full">
             {/* <HeaderStats /> */}
           </div>
         </div>
-        <div className="px-4 md:px-10 mx-auto w-full -m-24 bg-white">
+        <div className="px-4 md:px-10 mx-auto md:pt-48 w-full -m-24 bg-white">
           {children}
         </div>
       </div>
