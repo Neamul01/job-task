@@ -1,4 +1,5 @@
 "use client";
+import { useRegistrationContext } from "@/contexts/RegistrationContext";
 import { useUserContext } from "@/contexts/userContext";
 import Axios from "@/utils/Axios";
 import { Alert, Button, Label } from "flowbite-react";
@@ -8,7 +9,8 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { HiInformationCircle } from "react-icons/hi";
 
 export default function Page() {
-  const { setUser } = useUserContext();
+  const { user, setUser } = useUserContext();
+  const { data, setData } = useRegistrationContext();
   const [formData, setFormData] = React.useState({
     email: "",
     password: "",
@@ -21,6 +23,16 @@ export default function Page() {
         console.log(res.data.data);
         localStorage.setItem("access_token", res.data.data.token);
         setUser(res.data.data);
+        setData(res.data.data);
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            full_name: res.data.data.full_name,
+            position: res.data.data.position,
+          })
+        );
+
+        console.log("data", data);
         window.location.href = "/";
       })
       .catch((err) => {

@@ -207,12 +207,9 @@ export default function Page() {
         </Button>
         <div className="w-full flex justify-center">
           Don’t Have An Account?{" "}
-          <Link
-            href={"/auth/registration"}
-            className="ml-1 text-primary underline"
-          >
+          <Link href={"/auth/login"} className="ml-1 text-primary underline">
             {" "}
-            Register Now
+            Login Now
           </Link>
         </div>
       </form>
