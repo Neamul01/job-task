@@ -1,11 +1,8 @@
+import { IUser } from "@/types/User";
 import Image from "next/image";
 import React from "react";
 
-interface User {
-  name: string;
-  positon: string;
-}
-export default function About({ user }: { user: User }) {
+export default function About({ user }: { user: IUser | undefined }) {
   console.log(user);
   return (
     <div className="lg:px-9 px-3 py-12 shadow-xl rounded-lg">
@@ -13,7 +10,7 @@ export default function About({ user }: { user: User }) {
         <Image src={"/"} alt="profile" fill />
       </div>
       <h2 className="lg:text-h3 text-2xl font-semibold text-center lg:mb-12 mb-6 mt-[37px]">
-        {user ? user?.name : "Dr. Johirul Islam Nishat"}
+        {user ? user?.full_name : "Dr. Johirul Islam Nishat"}
       </h2>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">

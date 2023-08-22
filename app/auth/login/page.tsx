@@ -1,6 +1,5 @@
 "use client";
 import { useRegistrationContext } from "@/contexts/RegistrationContext";
-import { useUserContext } from "@/contexts/userContext";
 import Axios from "@/utils/Axios";
 import { Alert, Button, Label } from "flowbite-react";
 import Link from "next/link";
@@ -9,7 +8,6 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { HiInformationCircle } from "react-icons/hi";
 
 export default function Page() {
-  const { user, setUser } = useUserContext();
   const { data, setData } = useRegistrationContext();
   const [formData, setFormData] = React.useState({
     email: "",
@@ -22,7 +20,6 @@ export default function Page() {
       .then((res) => {
         console.log(res.data.data);
         localStorage.setItem("access_token", res.data.data.token);
-        setUser(res.data.data);
         setData(res.data.data);
         localStorage.setItem(
           "user",
