@@ -1,5 +1,6 @@
 "use client";
 import { useRegistrationContext } from "@/contexts/RegistrationContext";
+import { IUser } from "@/types/User";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -9,10 +10,13 @@ export default function Home() {
 
   console.log("data", data);
   useEffect(() => {
-    const user = localStorage.getItem("user");
+    const userString = localStorage.getItem("user");
+    const user: IUser | null = userString ? JSON.parse(userString) : null;
     console.log(user);
     if (user) {
-      router.push("/admin/dashboard");
+      user.position === "teacher"
+        ? router.push("/admin/dashboard")
+        : router.push("/student/dashboard");
     } else {
       // router.push("/auth/login");
       console.log(user);
