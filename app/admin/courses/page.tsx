@@ -97,6 +97,7 @@ export default function Page() {
           {courses?.map((item: ICourse, index: number) => (
             <div
               key={index}
+              onClick={() => router.push(`/admin/courses/${item.lesson_name}`)}
               className="xl:col-span-3 lg:col-span-6  h-[340px] px-2 py-4  flex flex-col justify-between shadow-lg rounded-lg"
             >
               <Course course={item} />
