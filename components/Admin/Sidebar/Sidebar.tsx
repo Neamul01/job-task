@@ -1,7 +1,7 @@
 "use client";
 import React, { MouseEventHandler, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import NotificationDropdown from "@/components/Admin/Dropdowns/NotificationDropdown";
 import UserDropdown from "@/components/Admin/Dropdowns/UserDropdown";
@@ -12,7 +12,47 @@ import { BiLogOut } from "react-icons/bi";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState(false);
-  const router = usePathname();
+  const path = usePathname();
+  const router = useRouter();
+
+  const adminPages = [
+    {
+      id: 1,
+      name: "Dashboard",
+      href: "/admin/dashboard",
+      icon: AiOutlineHome,
+    },
+    {
+      id: 2,
+      name: "Courses",
+      href: "/admin/courses",
+      icon: AiOutlineUnorderedList,
+    },
+    {
+      id: 3,
+      name: "Add New Course",
+      href: "/admin/addcourse",
+      icon: AiOutlineUnorderedList,
+    },
+    {
+      id: 4,
+      name: "Account",
+      href: "/admin/account",
+      icon: BsPerson,
+    },
+    {
+      id: 5,
+      name: "Logout",
+      href: "/",
+      icon: BiLogOut,
+      action: () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("access_token");
+        console.log("logout");
+        router.push("/auth/login");
+      },
+    },
+  ];
 
   const adminRoutes = adminPages.map((page) => {
     return (
@@ -27,7 +67,7 @@ export default function Sidebar() {
             <page.icon
               className={
                 "mr-2 text-sm text-white " +
-                (router.indexOf(page.href) !== -1 ? "opacity-75" : "")
+                (path.indexOf(page.href) !== -1 ? "opacity-75" : "")
               }
             ></page.icon>
             {page.name}
@@ -37,7 +77,7 @@ export default function Sidebar() {
             href={page.href}
             className={
               "text-xs uppercase py-3 font-bold flex items-center my-4 text-white pl-3" +
-              (router.indexOf(page.href) !== -1
+              (path.indexOf(page.href) !== -1
                 ? " bg-white/20 rounded-lg"
                 : " hover:text-secondary")
             }
@@ -45,7 +85,7 @@ export default function Sidebar() {
             <page.icon
               className={
                 "mr-2 text-sm text-white " +
-                (router.indexOf(page.href) !== -1 ? "opacity-75" : "")
+                (path.indexOf(page.href) !== -1 ? "opacity-75" : "")
               }
             ></page.icon>
             {page.name}
@@ -130,41 +170,3 @@ export default function Sidebar() {
     </>
   );
 }
-
-const adminPages = [
-  {
-    id: 1,
-    name: "Dashboard",
-    href: "/admin/dashboard",
-    icon: AiOutlineHome,
-  },
-  {
-    id: 2,
-    name: "Courses",
-    href: "/admin/courses",
-    icon: AiOutlineUnorderedList,
-  },
-  {
-    id: 3,
-    name: "Add New Course",
-    href: "/admin/addcourse",
-    icon: AiOutlineUnorderedList,
-  },
-  {
-    id: 4,
-    name: "Account",
-    href: "/admin/account",
-    icon: BsPerson,
-  },
-  {
-    id: 5,
-    name: "Logout",
-    href: "/",
-    icon: BiLogOut,
-    action: () => {
-      localStorage.removeItem("user");
-      localStorage.removeItem("access_token");
-      console.log("logout");
-    },
-  },
-];
