@@ -48,7 +48,7 @@ export default function AdminNavbar() {
               </div>
             </form>
             {/* User */}
-            <div className="flex justify-between md:order-2 w-64">
+            <div className="flex justify-end gap-2 md:order-2 w-64">
               <Avatar
                 alt="User settings"
                 img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
@@ -58,7 +58,12 @@ export default function AdminNavbar() {
                 <p className="capitalize ">{userName()}</p>
                 <small className="text-xs capitalize">{user?.position}</small>
               </div>
-              <Dropdown inline label={""}>
+              <Dropdown
+                inline
+                label={""}
+                color={"white"}
+                className="text-white"
+              >
                 <Dropdown.Header className="flex flex-col items-center">
                   <span className="block text-sm capitalize">
                     {user?.full_name}
