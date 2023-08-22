@@ -1,4 +1,6 @@
 "use client";
+import CurriculumTab from "@/components/Student/Courses/CurriculumTab";
+import OverviewTab from "@/components/Student/Courses/OverviewTab";
 import { Breadcrumb, Tabs } from "flowbite-react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -54,26 +56,10 @@ export default function Page() {
             className="mt-4"
           >
             <Tabs.Item active title="Overview">
-              <p>
-                This is
-                <span className="font-medium text-gray-800 dark:text-white">
-                  Profile associated content
-                </span>
-                . Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-              </p>
+              <OverviewTab />
             </Tabs.Item>
             <Tabs.Item title="Curriculum">
-              <p>
-                This is
-                <span className="font-medium text-gray-800 dark:text-white">
-                  Dashboard associated content
-                </span>
-                . Clicking another tab will toggle the visibility of this one
-                for the next. The tab JavaScript swaps classes to control the
-                content visibility and styling.
-              </p>
+              <CurriculumTab />
             </Tabs.Item>
           </Tabs.Group>
         </div>
