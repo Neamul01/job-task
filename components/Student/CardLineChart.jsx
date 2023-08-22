@@ -3,6 +3,7 @@ import { IChartData } from "@/types";
 
 import React from "react";
 import { Chart, registerables } from "chart.js";
+import { Button } from "flowbite-react";
 
 export default function CardLineChart({ chartData }) {
   React.useEffect(() => {
@@ -116,6 +117,13 @@ export default function CardLineChart({ chartData }) {
         </div>
         <div className="p-4 flex-auto">
           {/* Chart */}
+          <div className="">
+            {/* <Button.Group pill size="xs" className="bg-transparent">
+              <Button>Monthly</Button>
+              <Button>Yearly</Button>
+              <Button>Weekly</Button>
+            </Button.Group> */}
+          </div>
           <div className="relative h-[386px]">
             <canvas id="line-chart"></canvas>
           </div>
