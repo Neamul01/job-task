@@ -1,4 +1,5 @@
-export const useUser = () => {
+"use client";
+export const useUser = (): string | null => {
   const user = localStorage.getItem("user") || null;
   return user;
 };

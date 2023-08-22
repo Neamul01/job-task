@@ -1,28 +1,46 @@
-import React from "react";
-
-// components
+"use client";
+import React, { use, useEffect, useState } from "react";
 
 import AdminNavbar from "@/components/Navbars/AdminNavbar";
 import Sidebar from "@/components/Admin/Sidebar/Sidebar";
 import HeaderStats from "@/components/Admin/Headers/HeaderStats";
+import { useUser } from "@/hooks/useUser";
+import { useRouter } from "next/navigation";
 
 export default function Admin({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="bg-white">
-      <Sidebar />
-      <div className="relative md:ml-64 bg-secondary/80">
-        <AdminNavbar />
-        {/* Header */}
+  const [user, setUser] = useState<string | null>();
+  const router = useRouter();
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    console.log(user);
+    if (user) {
+      setUser(user);
+    } else {
+      router.push("/auth/login");
+      console.log("user inside admin", user);
+    }
+  }, [router]);
 
-        <div className="relative  pt-12">
-          <div className="px-4 md:px-10 mx-auto w-full">
-            {/* <HeaderStats /> */}
+  return (
+    <>
+      {user && (
+        <div className="bg-white">
+          <Sidebar />
+          <div className="relative md:ml-64 bg-secondary/80">
+            <AdminNavbar />
+            {/* Header */}
+
+            <div className="relative  pt-12">
+              <div className="px-4 md:px-10 mx-auto w-full">
+                {/* <HeaderStats /> */}
+              </div>
+            </div>
+            <div className="px-4 md:px-10 mx-auto md:pt-48 w-full -m-24 bg-white">
+              {children}
+            </div>
           </div>
         </div>
-        <div className="px-4 md:px-10 mx-auto md:pt-48 w-full -m-24 bg-white">
-          {children}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

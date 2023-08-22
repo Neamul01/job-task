@@ -14,7 +14,7 @@ export default function HeaderStats({ data }: { data: Statics[] }) {
           {data?.map((item, index) => (
             <div
               key={index}
-              className="w-full md:col-span-6 xl:col-span-4 px-4"
+              className="w-full md:col-span-6 xl:col-span-4 2xl:col-span-3 px-4"
             >
               <CardStats
                 statSubtitle={item.title}

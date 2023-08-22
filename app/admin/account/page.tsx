@@ -1,7 +1,7 @@
 "use client";
 import About from "@/components/Admin/Account/About";
 import PersonalInfo from "@/components/Admin/Account/PersonalInfo";
-import { useUserContext } from "@/contexts/userContext";
+import { IUser } from "@/types/User";
 import Axios from "@/utils/Axios";
 import { Breadcrumb } from "flowbite-react";
 import React, { useEffect } from "react";
@@ -9,8 +9,10 @@ import { HiHome } from "react-icons/hi";
 
 export default function Page() {
   const [userData, setUserData] = React.useState<any>(null);
-  const { user } = useUserContext();
+  const [user, setUser] = React.useState<IUser | undefined>();
   useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")!) as IUser);
+
     Axios.get("/api/v1/user/details")
       .then((res) => {
         setUserData(res.data.user_data);
@@ -21,7 +23,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="">
+    <div className="mt-20 md:mt-0">
       <div>
         <h2 className="text-xl font-semibold mb-4">Add New Course</h2>
         <Breadcrumb aria-label="Default breadcrumb example">
