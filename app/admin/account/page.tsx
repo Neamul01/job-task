@@ -27,10 +27,12 @@ export default function Page() {
       <div>
         <h2 className="text-xl font-semibold mb-4">Add New Course</h2>
         <Breadcrumb aria-label="Default breadcrumb example">
-          <Breadcrumb.Item href="#" icon={HiHome}>
+          <Breadcrumb.Item href="/" icon={HiHome}>
             <p>Dashboard</p>
           </Breadcrumb.Item>
-          <Breadcrumb.Item href="#">Course</Breadcrumb.Item>
+          <Breadcrumb.Item href="#">
+            <span className="text-primary">Course</span>
+          </Breadcrumb.Item>
         </Breadcrumb>
       </div>
       <div className="grid xl:grid-cols-12 gap-11 xl:px-12 px-2 py-8 mt-8 rounded-lg">

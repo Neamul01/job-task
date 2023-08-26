@@ -1,5 +1,6 @@
 "use client";
 import Course from "@/components/Admin/Courses/Course";
+import CustomBreadCrumb from "@/components/common/CustomBreadCrumb";
 import { ICourse } from "@/types";
 import Axios from "@/utils/Axios";
 import { Breadcrumb } from "flowbite-react";
@@ -24,21 +25,24 @@ export default function Page() {
         console.log(err);
       });
   }, []);
+
+  const breadcrumbItems = [
+    {
+      href: "/",
+      icon: HiHome,
+      children: "Dashboard",
+    },
+    {
+      href: "/admin/dashboard",
+      children: "Courses",
+    },
+  ];
+
   return (
     <div className="mt-20 md:mt-0">
       <div>
         <h2 className="text-xl font-semibold mb-4">Discover</h2>
-        <Breadcrumb aria-label="Default breadcrumb example">
-          <Breadcrumb.Item
-            href="/admin/dashboard"
-            onClick={() => router.push("/admin/dashboard")}
-            className="cursor-pointer"
-            icon={HiHome}
-          >
-            Dashboard
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/admin/courses">Courses</Breadcrumb.Item>
-        </Breadcrumb>
+        <CustomBreadCrumb items={breadcrumbItems} />
       </div>
       <div className="xl:px-12 px-2 py-8 mt-8 rounded-lg flex flex-col gap-8">
         <div className="w-full flex justify-between">
