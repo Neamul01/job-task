@@ -7,7 +7,7 @@ export default function ReviewCard() {
       <div className="h-14 w-14 relative rounded-full overflow-hidden">
         <Image src={"/teacher.png"} fill alt="reacher" />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-56 md:w-auto">
         <h2 className="text-lg">Arlene McCoy</h2>
         <p className="text-xs">about an hour ago</p>
         <p className="text-sm">

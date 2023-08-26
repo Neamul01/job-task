@@ -71,14 +71,14 @@ export default function CourseSide() {
               Begining
             </p>
           </div>
-          <Button className="bg-gray-100 rounded-xl border-dashed w-full py-3">
+          <p className="bg-gray-100 rounded-xl border-dashed w-full py-6 flex items-center justify-center text-center hover:bg-gray-100 dark:hover:bg-gray-100">
             <div className="flex flex-nowrap gap-2">
               <p className="xl:text-2xl text-xl font-semibold text-black">
                 USD 199.00
               </p>
               <del className="xl:text-lg text-base text-gray-400">$250.00</del>
             </div>
-          </Button>
+          </p>
           <Button className="bg-primary py-3">
             <div className="flex items-center gap-3">
               <BsCartCheck className="text-2xl text-white mr-3" />

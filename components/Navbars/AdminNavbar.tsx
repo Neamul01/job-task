@@ -22,10 +22,10 @@ export default function AdminNavbar() {
 
   const userName = () => {
     if (user) {
-      if (user.full_name.length > 10) {
+      if (user?.full_name?.length > 10) {
         return user.full_name.slice(0, 10) + "...";
       }
-      return user.full_name;
+      return user?.full_name;
     }
   };
 
@@ -33,7 +33,7 @@ export default function AdminNavbar() {
     <>
       {/* Navbar */}
 
-      <Navbar rounded className="bg-primary hidden md:block">
+      <Navbar rounded className="bg-primary hidden md:block sticky top-0 z-20">
         <nav className="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center border-b shadow-sm">
           <div className="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap xl:px-[100px] px-4 md:py-[22px] py-2 bg-primary">
             {/* Form */}
@@ -64,27 +64,29 @@ export default function AdminNavbar() {
                 inline
                 label={""}
                 color={"white"}
-                className="text-white"
+                className="text-white relative rounded-md text-sm font-medium w-28"
               >
-                <Dropdown.Header className="flex flex-col items-center">
-                  <span className="block text-sm capitalize">
+                <Dropdown.Header className="flex flex-col gap-2 justify-start p-1 ">
+                  <p className="block text-sm capitalize text-left px-3 py-1 bg-gray-100 w-full">
                     {user?.full_name}
-                  </span>
-                  <span className="block truncate text-sm font-medium capitalize">
+                  </p>
+                  <p className="block text-sm capitalize text-left px-3 py-1 bg-gray-100 w-full">
                     {user?.position}
-                  </span>
+                  </p>
                 </Dropdown.Header>
-                <button
-                  className="text-xs text-center w-full bg-secondary"
-                  onClick={() => {
-                    localStorage.removeItem("user");
-                    localStorage.removeItem("access_token");
-                    console.log("logout");
-                    router.push("/auth/login");
-                  }}
-                >
-                  Log out
-                </button>
+                <div className="w-full p-1">
+                  <button
+                    className="py-2 rounded-lg text-xs text-center w-full bg-secondary "
+                    onClick={() => {
+                      localStorage.removeItem("user");
+                      localStorage.removeItem("access_token");
+                      console.log("logout");
+                      router.push("/auth/login");
+                    }}
+                  >
+                    Log out
+                  </button>
+                </div>
               </Dropdown>
               <Navbar.Toggle />
             </div>

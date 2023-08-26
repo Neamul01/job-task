@@ -27,3 +27,13 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.animation-parent {
+  /* transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out; */
+}
+.animation-parent .animation-child:hover {
+  /* transform: scaleY(1);
+  transform-origin: bottom; */
+}

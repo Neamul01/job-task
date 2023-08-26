@@ -28,9 +28,9 @@ const config: Config = {
         secondary: "var(--secondary-color)",
       },
       fontSize: {
-        h1: "42px",
-        h2: "36px",
-        h3: "32px",
+        h1: "33px",
+        h2: "31px",
+        h3: "29px",
       },
     },
   },
