@@ -44,7 +44,7 @@ export default function Page() {
         <h2 className="text-xl font-semibold mb-4">Discover</h2>
         <CustomBreadCrumb items={breadcrumbItems} />
       </div>
-      <div className="xl:px-12 px-2 py-8 mt-8 rounded-lg flex flex-col gap-8 bg-gray-100">
+      <div className="xl:px-12 px-2 py-8 mt-8 rounded-lg flex flex-col gap-8 bg-gray-100 min-h-screen">
         <div className="w-full flex justify-between">
           <div className="flex md:gap-7 gap-2 flex-wrap lg:flex-nowrap">
             <div className="flex items-center md:gap-2 shadow-xl xl:px-7 px-3 xl:py-4 py-2 rounded-lg bg-white">

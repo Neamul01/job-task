@@ -28,7 +28,7 @@ export default function Admin({ children }: { children: React.ReactNode }) {
             <AdminNavbar />
             {/* Header */}
 
-            <div className="relative  pt-12">
+            <div className="relative  md:mt-12 mt-32">
               <div className="px-4 md:px-10 mx-auto w-full">
                 {/* <HeaderStats /> */}
               </div>

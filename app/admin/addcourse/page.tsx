@@ -43,14 +43,14 @@ export default function Page() {
         <h2 className="text-xl font-semibold mb-4">Add New Course</h2>
         <CustomBreadCrumb items={breadcrumbItems} />
       </div>
-      <div className="grid lg:grid-cols-2 gap-11 lg:px-12 px-2 py-8 mt-8 rounded-lg">
-        <div className="lg:col-span-1">
+      <div className="grid lg:grid-cols-2 2xl:gap-11 lg:gap-4 gap-2 lg:px-8 px-2 py-8 mt-8 rounded-lg bg-gray-100 min-h-screen">
+        <div className="lg:col-span-1 bg-white p-4 rounded-lg">
           <FileUpload
             setAllFiles={handleFileChange}
             handleSubmit={setHandleSubmit}
           />
         </div>
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 bg-white p-4 rounded-lg">
           <OtherInfo />
         </div>
 
