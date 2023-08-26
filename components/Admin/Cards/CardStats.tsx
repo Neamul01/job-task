@@ -1,6 +1,7 @@
 "use client";
 import { Progress } from "flowbite-react";
 import React from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 export default function CardStats({
   statSubtitle = "Traffic",
@@ -9,8 +10,9 @@ export default function CardStats({
   statPercent = 3.48,
   statPercentColor = "text-emerald-500",
   statDescripiron = "Since last month",
-  statIconName = "far fa-chart-bar",
-  statIconColor = "bg-red-500",
+  statIconName = "",
+  IconBgColor = "",
+  statIconColor = "bg-white",
 }: CardStats) {
   return (
     <>
@@ -19,38 +21,42 @@ export default function CardStats({
           <div className="flex flex-wrap">
             <div className="relative w-auto pr-4 flex-initial">
               <div
-                className={
-                  "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full " +
-                  statIconColor
-                }
+                className={`text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  `}
+                style={{ background: IconBgColor }}
               >
                 {statIconName}
               </div>
             </div>
             <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
               <span className="font-semibold text-xl text-secondary/80">
-                {statTitle}
+                {statSubtitle === "total_revenue" ? "$" + statTitle : statTitle}
               </span>
               <h5 className="capitalize font-bold text-xs">{statSubtitle}</h5>
             </div>
           </div>
-          <div className="text-sm  justify-between mt-4">
-            <div className="w-5/6 inline-block">
-              <Progress progress={statPercent} />
+          {statPercent ? (
+            <div className="text-sm  justify-between mt-4">
+              <div className="w-5/6 inline-block">
+                <Progress progress={statPercent} />
+              </div>
+              <span className={statPercentColor + " "}>
+                <i
+                  className={
+                    statArrow === "up"
+                      ? "fas fa-arrow-up"
+                      : statArrow === "down"
+                      ? "fas fa-arrow-down"
+                      : ""
+                  }
+                ></i>{" "}
+                {statPercent}%
+              </span>
             </div>
-            <span className={statPercentColor + " "}>
-              <i
-                className={
-                  statArrow === "up"
-                    ? "fas fa-arrow-up"
-                    : statArrow === "down"
-                    ? "fas fa-arrow-down"
-                    : ""
-                }
-              ></i>{" "}
-              {statPercent}%
-            </span>
-          </div>
+          ) : (
+            <p className="text-xs text-blue-400 flex items-center gap-3 cursor-pointer">
+              <span>View Course</span> <AiOutlineArrowRight />
+            </p>
+          )}
         </div>
       </div>
     </>
@@ -58,6 +64,7 @@ export default function CardStats({
 }
 
 type CardStats = {
+  IconBgColor: string;
   statSubtitle: string;
   statTitle: string;
   statArrow: "up" | "down";

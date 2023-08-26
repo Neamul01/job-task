@@ -24,9 +24,9 @@ export default function Page() {
   };
 
   return (
-    <div className="md:max-w-registration md:h-[469px] mx-auto">
+    <div className="md:max-w-registration mx-auto">
       <div className="flex flex-col gap-6">
-        <h1 className="md:text-h1 text-2xl mb-8 md:mb-0 capitalize flex justify-center font-semibold">
+        <h1 className="md:text-h1 text-2xl mb-8 md:mb-10 capitalize flex justify-center font-semibold">
           personal information
         </h1>
       </div>
@@ -36,7 +36,7 @@ export default function Page() {
             <Label
               htmlFor="full_name"
               value="Full Name "
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <input
@@ -45,7 +45,7 @@ export default function Page() {
             id="full_name"
             onChange={(e) => setForm({ ...form, full_name: e.target.value })}
             placeholder="Enter Full Name "
-            className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
         <div className="">
@@ -53,7 +53,7 @@ export default function Page() {
             <Label
               htmlFor="email"
               value="Email Address"
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <input
@@ -62,7 +62,7 @@ export default function Page() {
             id="email"
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="Enter Email Address"
-            className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
         <div className="">
@@ -70,7 +70,7 @@ export default function Page() {
             <Label
               htmlFor="position"
               value="Position"
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <div className="relative">
@@ -79,7 +79,7 @@ export default function Page() {
               id="position"
               defaultValue={form.position}
               onChange={(e) => setForm({ ...form, position: e.target.value })}
-              className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
+              className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               <option value={"teacher"} className="custom-option">
@@ -96,7 +96,7 @@ export default function Page() {
             <Label
               htmlFor="institution_name"
               value="Institute Name"
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <div className="relative">
@@ -110,7 +110,7 @@ export default function Page() {
                   institution_name: e.target.value,
                 })
               }
-              className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
+              className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               <option value={0} className="custom-option">
@@ -134,7 +134,7 @@ export default function Page() {
               <Label
                 htmlFor="work_time"
                 value="Work Time"
-                className="md:text-2xl"
+                className="xl:text-xl md:text-lg"
               />
             </div>
             <div className="relative">
@@ -145,7 +145,7 @@ export default function Page() {
                 onChange={(e) =>
                   setForm({ ...form, work_time: e.target.value })
                 }
-                className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
+                className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 <option
@@ -173,7 +173,7 @@ export default function Page() {
               <Label
                 htmlFor="education_level"
                 value="Education Level"
-                className="md:text-2xl"
+                className="xl:text-xl md:text-lg"
               />
             </div>
             <div className="relative">
@@ -184,7 +184,7 @@ export default function Page() {
                 onChange={(e) =>
                   setForm({ ...form, education_level: e.target.value })
                 }
-                className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none
+                className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 <option
@@ -211,7 +211,7 @@ export default function Page() {
           type="submit"
           className="bg-primary md:py-6 md:px-4 hover:bg-secondary"
         >
-          <span className="md:text-2xl">Next</span>
+          <span className="xl:text-xl md:text-lg">Next</span>
         </Button>
         <div className="w-full flex md:text-lg text-xs justify-center">
           Don’t Have An Account?{" "}

@@ -36,7 +36,7 @@ export default function Page() {
   return (
     <div className="md:max-w-registration mx-auto">
       <div className="flex flex-col gap-6">
-        <h1 className="md:text-h1 text-2xl capitalize flex justify-center font-semibold">
+        <h1 className="md:text-h1 text-2xl capitalize mb-10 flex justify-center font-semibold">
           Security
         </h1>
       </div>
@@ -46,7 +46,7 @@ export default function Page() {
             <Label
               htmlFor="password"
               value="Password "
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <input
@@ -55,7 +55,7 @@ export default function Page() {
             id="password"
             onChange={(e) => setForm({ ...form, password: e.target.value })}
             placeholder="Enter New Password "
-            className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
         <div className="">
@@ -63,7 +63,7 @@ export default function Page() {
             <Label
               htmlFor="Confirm password"
               value="Confirm Password "
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <input
@@ -74,7 +74,7 @@ export default function Page() {
               setForm({ ...form, confirm_password: e.target.value })
             }
             placeholder="Re-Enter New Password "
-            className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
 
@@ -82,7 +82,7 @@ export default function Page() {
           type="submit"
           className="bg-primary md:py-6 md:px-4 hover:bg-secondary"
         >
-          <span className="md:text-2xl">Confirm</span>
+          <span className="xl:text-xl md:text-lg">Confirm</span>
         </Button>
         <div className="w-full flex justify-center md:text-lg text-xs">
           Already An Account?{" "}

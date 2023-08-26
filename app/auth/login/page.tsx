@@ -44,8 +44,8 @@ export default function Page() {
       });
   };
   return (
-    <div className="mx-auto md:w-[800px] md:h-[588px] px-2 md:px-0 flex flex-col">
-      <h1 className="text-center md:text-h1 text-2xl md:mb-20 mb-10">
+    <div className="mx-auto md:w-[500px] px-2 md:px-10 py-4 md:py-12 md:pt-16 rounded-xl flex flex-col bg-white shadow-xl">
+      <h1 className="text-center md:text-h1 text-2xl md:mb-12 font-semibold mb-10">
         Welcome To Task Job
       </h1>
       <form className="flex flex-col md:gap-6 gap-3 " onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ export default function Page() {
             <Label
               htmlFor="email"
               value="Email Address"
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <input
@@ -65,7 +65,7 @@ export default function Page() {
               setFormData({ ...formData, email: e.target.value })
             }
             placeholder="Enter Email Address"
-            className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
         <div className="">
@@ -73,7 +73,7 @@ export default function Page() {
             <Label
               htmlFor="password"
               value="Password"
-              className="md:text-2xl"
+              className="xl:text-xl md:text-lg"
             />
           </div>
           <div className="relative">
@@ -85,7 +85,7 @@ export default function Page() {
                 setFormData({ ...formData, password: e.target.value })
               }
               placeholder="Enter Password"
-              className="border w-full rounded-lg md:px-4 md:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
             <div className="absolute top-1/2 right-6 transform -translate-y-1/2 cursor-pointer">
               <AiOutlineEyeInvisible className="text-2xl text-gray-400" />
@@ -93,10 +93,10 @@ export default function Page() {
           </div>
         </div>
         <Button
-          className="bg-primary md:py-6 md:px-4 hover:bg-secondary"
+          className="bg-primary md:py-4 md:px-3 hover:bg-secondary"
           type="submit"
         >
-          <span className="md:text-2xl">Login</span>
+          <span className="xl:text-xl md:text-lg">Login</span>
         </Button>
         <div className="w-full flex justify-center text-xs md:text-lg">
           Don’t Have An Account?{" "}

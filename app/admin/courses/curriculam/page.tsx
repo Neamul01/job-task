@@ -1,17 +1,16 @@
 "use client";
-import CourseSide from "@/components/Student/Courses/CourseSide";
+import CurriculamSide from "@/components/Student/Courses/CurriculamSide";
 import CurriculumTab from "@/components/Student/Courses/CurriculumTab";
 import OverviewTab from "@/components/Student/Courses/OverviewTab";
 import CustomBreadCrumb from "@/components/common/CustomBreadCrumb";
 import { Breadcrumb, Tabs } from "flowbite-react";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import React from "react";
 import { HiHome } from "react-icons/hi";
 
 export default function Page() {
   const params = useParams();
-  const router = useRouter();
 
   const breadcrumbItem = [
     {
@@ -21,23 +20,18 @@ export default function Page() {
     },
     {
       href: "/admin/courses",
-      children: "Courses",
-    },
-    {
-      href: "/admin/courses/" + params.id,
-      children: params.id,
+      children: "Curriculam",
     },
   ];
-
   return (
     <div className="mt-20 md:mt-0">
       <div>
-        <h2 className="text-xl font-semibold mb-4">Add New Course</h2>
+        <h2 className="text-xl font-semibold mb-4">Discover</h2>
         <CustomBreadCrumb items={breadcrumbItem} />
       </div>
       <div className="grid lg:grid-cols-12 xl:gap-11 gap-2 lg:gap-5 xl:px-12 px-2 py-8 mt-8 rounded-lg bg-[#f7f8fe]">
         <div className="lg:col-span-8 overflow-hidden bg-white p-2 md:p-4 rounded-lg">
-          <div className="rounded-lg overflow-hidden">
+          <div className="rounded-lg overflow-hidden border">
             <iframe
               width="100%"
               height="428"
@@ -65,16 +59,16 @@ export default function Page() {
             style="default"
             className="mt-4"
           >
-            <Tabs.Item active title="Overview">
+            <Tabs.Item title="Overview">
               <OverviewTab />
             </Tabs.Item>
-            <Tabs.Item title="Curriculum">
+            <Tabs.Item active title="Curriculum">
               <CurriculumTab />
             </Tabs.Item>
           </Tabs.Group>
         </div>
         <div className="lg:col-span-4">
-          <CourseSide />
+          <CurriculamSide />
         </div>
       </div>
     </div>
