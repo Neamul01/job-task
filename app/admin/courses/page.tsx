@@ -1,6 +1,7 @@
 "use client";
 import Course from "@/components/Admin/Courses/Course";
 import CustomBreadCrumb from "@/components/common/CustomBreadCrumb";
+import Loading from "@/components/common/Loading";
 import { ICourse } from "@/types";
 import Axios from "@/utils/Axios";
 import { Breadcrumb, Button } from "flowbite-react";
@@ -12,17 +13,21 @@ import { HiHome } from "react-icons/hi";
 export default function Page() {
   const router = useRouter();
   const [courses, setCourses] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     popular: "popular",
   });
 
   useEffect(() => {
+    setLoading(true);
     Axios.post("/api/v1/course/list", { perpage: 10, page: 1 })
       .then((res) => {
         setCourses(res.data.send_res);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   }, []);
 
@@ -108,26 +113,17 @@ export default function Page() {
           <div className=""></div>
         </div>
         <div className="grid lg:grid-cols-12 2xl:gap-12 lg:gap-4 gap-2">
-          {courses?.map((item: ICourse, index: number) => (
-            <div key={index} className="xl:col-span-3 lg:col-span-6">
-              <Course course={item} />
-            </div>
-          ))}
-          {courses?.map((item: ICourse, index: number) => (
-            <div key={index} className="xl:col-span-3 lg:col-span-6">
-              <Course course={item} />
-            </div>
-          ))}
-          {courses?.map((item: ICourse, index: number) => (
-            <div key={index} className="xl:col-span-3 lg:col-span-6">
-              <Course course={item} />
-            </div>
-          ))}
-          {courses?.map((item: ICourse, index: number) => (
-            <div key={index} className="xl:col-span-3 lg:col-span-6">
-              <Course course={item} />
-            </div>
-          ))}
+          {loading ? (
+            <Loading />
+          ) : (
+            [1, 2, 3, 4].map(() =>
+              courses?.map((item: ICourse, index: number) => (
+                <div key={index} className="xl:col-span-3 lg:col-span-6">
+                  <Course course={item} />
+                </div>
+              ))
+            )
+          )}
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import CardStats from "@/components/Admin/Cards/CardStats";
 import { AiOutlineBarChart } from "react-icons/ai";
 import { TiDocumentText } from "react-icons/ti";
 import { BsFlag } from "react-icons/bs";
+import Loading from "@/components/common/Loading";
 
 const titleToIconMapping: any = {
   1: <TiDocumentText />,
@@ -22,34 +23,44 @@ const titleToIconBgColor: any = {
   4: "linear-gradient(180deg, #20AF62 0%, #17E783 100%)",
 };
 
-export default function HeaderStats({ data }: { data: Statics[] }) {
+export default function HeaderStats({
+  data,
+  loading,
+}: {
+  data: Statics[];
+  loading?: boolean;
+}) {
   return (
     <>
-      <div>
-        {/* Card stats */}
-        <div className="grid md:grid-cols-12 lg:gap-2">
-          {data?.map((item, index) => (
-            <div
-              key={index}
-              className="w-full md:col-span-6 xl:col-span-4 2xl:col-span-3 px-4"
-            >
-              <CardStats
-                statSubtitle={item.title}
-                statTitle={`${item.total}`}
-                statArrow="up"
-                IconBgColor={titleToIconBgColor[item.id]}
-                statPercent={item.progress}
-                statPercentColor="text-emerald-500"
-                statDescripiron="Since last month"
-                statIconName={
-                  titleToIconMapping[item.id] || <AiOutlineBarChart />
-                }
-                statIconColor="bg-red-500"
-              />
-            </div>
-          ))}
+      {loading ? (
+        <Loading height="16" width="16" />
+      ) : (
+        <div>
+          {/* Card stats */}
+          <div className="grid md:grid-cols-12 lg:gap-2">
+            {data?.map((item, index) => (
+              <div
+                key={index}
+                className="w-full md:col-span-6 xl:col-span-4 2xl:col-span-3 px-4"
+              >
+                <CardStats
+                  statSubtitle={item.title}
+                  statTitle={`${item.total}`}
+                  statArrow="up"
+                  IconBgColor={titleToIconBgColor[item.id]}
+                  statPercent={item.progress}
+                  statPercentColor="text-emerald-500"
+                  statDescripiron="Since last month"
+                  statIconName={
+                    titleToIconMapping[item.id] || <AiOutlineBarChart />
+                  }
+                  statIconColor="bg-red-500"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

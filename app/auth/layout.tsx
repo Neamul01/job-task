@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <PageLayout
-      className="flex items-center py-10 max-w-none min-h-screen  bg-gray-200"
+      className="flex items-center max-w-none min-h-screen  bg-gray-200"
       parentClass="px-0"
     >
       <div className="md:w-[1000px] mx-auto">

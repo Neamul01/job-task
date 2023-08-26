@@ -3,12 +3,13 @@ import { useRegistrationContext } from "@/contexts/RegistrationContext";
 import Axios from "@/utils/Axios";
 import { Alert, Button, Label } from "flowbite-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { HiInformationCircle } from "react-icons/hi";
 
 export default function Page() {
   const { data, setData } = useRegistrationContext();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = React.useState({
     email: "",
     password: "",
@@ -16,6 +17,7 @@ export default function Page() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     Axios.post("/api/v1/user/login", formData)
       .then((res) => {
         console.log(res.data.data);
@@ -29,10 +31,12 @@ export default function Page() {
           })
         );
 
-        console.log("data", data);
+        // console.log("data", data);
+        setLoading(false);
         window.location.href = "/";
       })
       .catch((err) => {
+        setLoading(false);
         <Alert color="failure" icon={HiInformationCircle}>
           <span>
             <p>
@@ -41,6 +45,9 @@ export default function Page() {
             </p>
           </span>
         </Alert>;
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   return (
@@ -93,6 +100,7 @@ export default function Page() {
           </div>
         </div>
         <Button
+          disabled={loading}
           className="bg-primary md:py-4 md:px-3 hover:bg-secondary"
           type="submit"
         >

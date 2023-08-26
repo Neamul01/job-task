@@ -8,6 +8,7 @@ import React, { FormEvent, useState } from "react";
 
 export default function Page() {
   const { data, setData } = useRegistrationContext();
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     password: "",
     confirm_password: "",
@@ -15,6 +16,7 @@ export default function Page() {
   const router = useRouter();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     if (form.password !== form.confirm_password) {
       alert("Password and Confirm Password does not match");
       return;
@@ -25,11 +27,14 @@ export default function Page() {
       Axios.post("/api/v1/user/register", { ...data })
         .then((res) => {
           console.log(res);
+          setLoading(false);
           router.push("/auth/registration/confirmation");
         })
         .catch((err) => {
           console.log(err);
-        });
+          setLoading(false);
+        })
+        .finally(() => setLoading(false));
     }
   };
 
@@ -79,6 +84,7 @@ export default function Page() {
         </div>
 
         <Button
+          disabled={loading}
           type="submit"
           className="bg-primary md:py-6 md:px-4 hover:bg-secondary"
         >
