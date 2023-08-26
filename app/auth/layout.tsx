@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <PageLayout
-      className="flex items-center py-10  bg-gray-200"
+      className="flex items-center py-10 max-w-none min-h-screen  bg-gray-200"
       parentClass="px-0"
     >
       <div className="md:w-[1000px] mx-auto">
@@ -51,17 +51,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   className="flex items-center relative w-3/5 md:w-full justify-between"
                 >
                   <div
-                    className={`md:h-12 md:w-12 h-6 w-6 rounded-full flex justify-center items-center border text-black cursor-pointer ${
+                    className={`md:h-12 md:w-12 h-6 w-6 rounded-full flex justify-center items-center border border-gray-300 bg-gray-100 text-black cursor-pointer ${
                       active === tab ? " bg-primary text-white" : ""
                     }`}
                     onClick={() => handleClick(tab)}
                   >
                     {i + 1}
                   </div>
-                  <span className="relative z-10 bg-white px-2 capitalize">
+                  <span className="relative z-10 bg-transparent px-2 capitalize rounded-lg">
                     {tabs[tab as keyof typeof tabs]}
                   </span>
-                  <div className="absolute md:left-16 left-6 md:w-48 w-16 h-[1px] bg-gray-900 transform "></div>
+                  <div className="absolute md:left-16 left-6 md:w-36 w-16 h-[1px] bg-gray-900 transform "></div>
                 </div>
               );
             })}
