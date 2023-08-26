@@ -4,7 +4,7 @@ import React from "react";
 export default function OtherInfo() {
   return (
     <form>
-      <h3 className="xl:text-h3 font-semibold text-2xl">Other Information</h3>
+      <h3 className="xl:text-h3 font-semibold text-xl">Other Information</h3>
       <div className="flex flex-col gap-8 mt-4">
         <div className="">
           <div className="mb-2 block">
