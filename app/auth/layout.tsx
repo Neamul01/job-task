@@ -37,8 +37,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [path]);
 
   return (
-    <PageLayout className="md:my-[100px] my-10 ">
-      <div className="md:w-[1000px] md:h-[767px] mx-auto ">
+    <PageLayout
+      className="flex items-center py-10  bg-gray-200"
+      parentClass="px-0"
+    >
+      <div className="md:w-[1000px] mx-auto">
         {activePaths.includes("/login") ? null : (
           <div className="flex flex-wrap md:flex-nowrap justify-center gap-4 mb-12">
             {Object.keys(tabs).map((tab, i) => {

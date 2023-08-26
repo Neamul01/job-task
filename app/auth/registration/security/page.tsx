@@ -36,7 +36,7 @@ export default function Page() {
   return (
     <div className="md:max-w-registration mx-auto">
       <div className="flex flex-col gap-6">
-        <h1 className="md:text-h1 text-2xl capitalize flex justify-center font-semibold">
+        <h1 className="md:text-h1 text-2xl capitalize mb-10 flex justify-center font-semibold">
           Security
         </h1>
       </div>

@@ -24,9 +24,9 @@ export default function Page() {
   };
 
   return (
-    <div className="md:max-w-registration md:h-[469px] mx-auto">
+    <div className="md:max-w-registration mx-auto">
       <div className="flex flex-col gap-6">
-        <h1 className="md:text-h1 text-2xl mb-8 md:mb-0 capitalize flex justify-center font-semibold">
+        <h1 className="md:text-h1 text-2xl mb-8 md:mb-10 capitalize flex justify-center font-semibold">
           personal information
         </h1>
       </div>

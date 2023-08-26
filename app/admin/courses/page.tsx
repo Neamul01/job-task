@@ -46,7 +46,7 @@ export default function Page() {
       </div>
       <button
         onClick={() => router.push("/admin/courses/curriculam")}
-        className="py-2 px-5 rounded-xl mt-2 bg-gray-50 hover:bg-gray-200 text-black border"
+        className="py-2 px-5 rounded-xl mt-2 bg-red-300 hover:bg-gray-200 text-black border"
       >
         Curriculam
       </button>
