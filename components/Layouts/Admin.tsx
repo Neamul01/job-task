@@ -3,8 +3,6 @@ import React, { use, useEffect, useState } from "react";
 
 import AdminNavbar from "@/components/Navbars/AdminNavbar";
 import Sidebar from "@/components/Admin/Sidebar/Sidebar";
-import HeaderStats from "@/components/Admin/Headers/HeaderStats";
-import { useUser } from "@/hooks/useUser";
 import { useRouter } from "next/navigation";
 
 export default function Admin({ children }: { children: React.ReactNode }) {
@@ -26,7 +24,7 @@ export default function Admin({ children }: { children: React.ReactNode }) {
       {user && (
         <div className="bg-white">
           <Sidebar />
-          <div className="relative md:ml-64 bg-secondary/80">
+          <div className="relative md:ml-60 bg-secondary/80">
             <AdminNavbar />
             {/* Header */}
 

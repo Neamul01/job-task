@@ -73,8 +73,12 @@ export default function Page() {
                 onChange={(e) => setForm({ ...form, popular: e.target.value })}
                 className="w-3 px-1 rounded-lg border-none"
               >
-                <option value={"popular"} className="custom-option"></option>
-                <option value={""} className="custom-option"></option>
+                <option value={"popular"} className="">
+                  course
+                </option>
+                <option value={""} className="">
+                  course 2
+                </option>
               </select>
             </div>
             <div className="flex items-center md:gap-2 shadow-xl xl:px-7 px-3 xl:py-4 py-2 rounded-lg bg-white">

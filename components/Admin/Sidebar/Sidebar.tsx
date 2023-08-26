@@ -6,7 +6,12 @@ import { usePathname, useRouter } from "next/navigation";
 import NotificationDropdown from "@/components/Admin/Dropdowns/NotificationDropdown";
 import UserDropdown from "@/components/Admin/Dropdowns/UserDropdown";
 import AppLogo from "@/components/common/AppLogo";
-import { AiOutlineHome, AiOutlineUnorderedList } from "react-icons/ai";
+import {
+  AiOutlineClose,
+  AiOutlineHome,
+  AiOutlineMenu,
+  AiOutlineUnorderedList,
+} from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { IUser } from "@/types/User";
@@ -140,7 +145,7 @@ export default function Sidebar() {
       type="button"
       onClick={() => setCollapseShow(!collapseShow)}
     >
-      <i className="fas fa-bars"></i>i
+      {collapseShow ? <AiOutlineClose /> : <AiOutlineMenu />}
     </button>
   );
 
@@ -150,7 +155,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl md:h-screen bg-gradient-to-tr from-[#9C41D1] to-[#418CD1] flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl md:h-screen bg-gradient-to-tr from-[#9C41D1] to-[#418CD1] flex flex-wrap items-center justify-between relative md:w-60 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between md:justify-normal w-full mx-auto">
           {/* Toggler */}
           {collapseMenu}
@@ -160,7 +165,7 @@ export default function Sidebar() {
           <hr className="my-4 md:min-w-full" />
 
           <div className="hidden md:flex flex-col gap-4">
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none z-40">
               {adminRoutes}
             </ul>
           </div>
@@ -183,7 +188,7 @@ export default function Sidebar() {
               }
             >
               {/* Collapse header */}
-              <div className="md:min-w-full md:hidden block pb-8 mt-4 border-b border-solid bg-primary">
+              <div className="md:min-w-full md:hidden block mt-4 border-b border-solid bg-primary">
                 <div className="flex flex-wrap justify-between">
                   <div className="flex justify-end">{collapseMenu}</div>
                   <AppLogo variant="white" />
