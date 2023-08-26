@@ -8,9 +8,9 @@ export default function CourseSide() {
   return (
     <div className="overflow-hidden bg-white p-2 md:p-6 rounded-lg pt-4">
       <h2 className="text-2xl font-semibold">Tags:</h2>
-      <div className=" flex flex-col gap-8">
-        <div className="flex flex-wrap gap-2">
-          <Button className="bg-gray-100 text-gray-700 mt-3">
+      <div className=" flex flex-col gap-8 ">
+        <div className="flex flex-wrap gap-2 items-center mt-3">
+          <Button className="bg-gray-100 text-gray-700">
             <p>Switch</p>
             <RxCross2 className="ml-2 h-5 w-5" />
           </Button>

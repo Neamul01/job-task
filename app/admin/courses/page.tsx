@@ -3,7 +3,7 @@ import Course from "@/components/Admin/Courses/Course";
 import CustomBreadCrumb from "@/components/common/CustomBreadCrumb";
 import { ICourse } from "@/types";
 import Axios from "@/utils/Axios";
-import { Breadcrumb } from "flowbite-react";
+import { Breadcrumb, Button } from "flowbite-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -44,6 +44,12 @@ export default function Page() {
         <h2 className="text-xl font-semibold mb-4">Discover</h2>
         <CustomBreadCrumb items={breadcrumbItems} />
       </div>
+      <button
+        onClick={() => router.push("/admin/courses/curriculam")}
+        className="py-2 px-5 rounded-xl mt-2 bg-gray-50 hover:bg-gray-200 text-black border"
+      >
+        Curriculam
+      </button>
       <div className="xl:px-12 px-2 py-8 mt-8 rounded-lg flex flex-col gap-8 bg-gray-100 min-h-screen">
         <div className="w-full flex justify-between">
           <div className="flex md:gap-7 gap-2 flex-wrap lg:flex-nowrap">
