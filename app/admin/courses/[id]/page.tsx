@@ -2,29 +2,38 @@
 import CourseSide from "@/components/Student/Courses/CourseSide";
 import CurriculumTab from "@/components/Student/Courses/CurriculumTab";
 import OverviewTab from "@/components/Student/Courses/OverviewTab";
+import CustomBreadCrumb from "@/components/common/CustomBreadCrumb";
 import { Breadcrumb, Tabs } from "flowbite-react";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import { HiHome } from "react-icons/hi";
 
 export default function Page() {
   const params = useParams();
-  console.log(params);
+  const router = useRouter();
+
+  const breadcrumbItem = [
+    {
+      href: "/",
+      icon: HiHome,
+      children: "Dashboard",
+    },
+    {
+      href: "/admin/courses",
+      children: "Courses",
+    },
+    {
+      href: "/admin/courses/" + params.id,
+      children: params.id,
+    },
+  ];
+
   return (
     <div className="mt-20 md:mt-0">
       <div>
         <h2 className="text-xl font-semibold mb-4">Add New Course</h2>
-        <Breadcrumb
-          aria-label="Default breadcrumb example"
-          className="flex flex-wrap overflow-hidden"
-        >
-          <Breadcrumb.Item href="/" icon={HiHome}>
-            <p>Dashboard</p>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/admin/courses">Courses</Breadcrumb.Item>
-          <Breadcrumb.Item href="#">{params.id}</Breadcrumb.Item>
-        </Breadcrumb>
+        <CustomBreadCrumb items={breadcrumbItem} />
       </div>
       <div className="grid lg:grid-cols-12 xl:gap-11 gap-2 lg:gap-5 xl:px-12 px-2 py-8 mt-8 rounded-lg bg-[#f7f8fe]">
         <div className="lg:col-span-8 overflow-hidden bg-white p-2 md:p-4 rounded-lg">
