@@ -7,17 +7,17 @@ import ReviewCard from "./ReviewCard";
 export default function CurriculumTab() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="bg-gray-100 px-10 py-8 flex flex-col rounded-lg">
+      <div className="bg-gray-100 px-2 md:px-10 py-8 flex flex-col rounded-lg">
         <div className="flex justify-between">
           <div className="flex flex-col gap-3">
             <small className="text-gray-700 text-xs">Course 1 of 6</small>
             <p className="text-sm">Course 1 - Introduction</p>
           </div>
-          <button className="px-8 py-2 bg-primary hover:bg-primary/80 rounded-lg text-white">
+          <button className="lg:px-8 md:px-4 px-2 py-0 lg:p-2 whitespace-nowrap text-sm lg:text-base bg-primary hover:bg-primary/80 rounded-lg text-white">
             Go to Unit 3
           </button>
         </div>
-        <div className="flex flex-col gap-3 mt-5 w-1/2 mr-auto">
+        <div className="flex flex-col gap-3 mt-5 md:w-1/2 mr-auto">
           <Progress color="yellow" progress={50} size="sm" />
           <small className="text-xs text-gray-700">
             2 completed units of 11 available
