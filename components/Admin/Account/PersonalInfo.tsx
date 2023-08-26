@@ -70,7 +70,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                   <Label
                     htmlFor="first_name"
                     value="First Name "
-                    className="xl:text-2xl md:text-xl"
+                    className="xl:text-xl md:text-lg"
                   />
                 </div>
                 <input
@@ -82,7 +82,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                     setForm({ ...form, first_name: e.target.value })
                   }
                   placeholder="Type here... "
-                  className="border w-full rounded-lg xl:px-4 xl:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
               <div className="w-full">
@@ -90,7 +90,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                   <Label
                     htmlFor="last_name"
                     value="Last Name "
-                    className="xl:text-2xl md:text-xl"
+                    className="xl:text-xl md:text-lg"
                   />
                 </div>
                 <input
@@ -102,7 +102,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                     setForm({ ...form, last_name: e.target.value })
                   }
                   placeholder="Type here... "
-                  className="border w-full rounded-lg xl:px-4 xl:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                   <Label
                     htmlFor="birth_date"
                     value="Date of Birth "
-                    className="xl:text-2xl md:text-xl"
+                    className="xl:text-xl md:text-lg"
                   />
                 </div>
                 <input
@@ -124,7 +124,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                     setForm({ ...form, birth_date: e.target.value })
                   }
                   placeholder="Type here... "
-                  className="border w-full rounded-lg xl:px-4 xl:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
               <div className="w-full">
@@ -132,7 +132,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                   <Label
                     htmlFor="gender"
                     value="Gender"
-                    className="xl:text-2xl md:text-xl"
+                    className="xl:text-xl md:text-lg"
                   />
                 </div>
                 <div className="relative">
@@ -143,7 +143,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                     onChange={(e) =>
                       setForm({ ...form, gender: e.target.value })
                     }
-                    className="border w-full rounded-lg xl:px-4 xl:py-6 focus:outline-none
+                    className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none
             focus:ring-2 focus:ring-primary focus:border-transparent"
                   >
                     <option value={"male"} className="custom-option">
@@ -161,7 +161,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                 <Label
                   htmlFor="email"
                   value="Email Address "
-                  className="xl:text-2xl md:text-xl"
+                  className="xl:text-xl md:text-lg"
                 />
               </div>
               <input
@@ -171,7 +171,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                 defaultValue={form?.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="Type here..."
-                className="border w-full rounded-lg xl:px-4 xl:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
             <div className="">
@@ -179,7 +179,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                 <Label
                   htmlFor="phone"
                   value="Phone Number "
-                  className="xl:text-2xl md:text-xl"
+                  className="xl:text-xl md:text-lg"
                 />
               </div>
               <input
@@ -189,7 +189,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                 defaultValue={form?.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 placeholder="Type here... "
-                className="border w-full rounded-lg xl:px-4 xl:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
             <div className="">
@@ -197,7 +197,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                 <Label
                   htmlFor="cover_letter"
                   value="Cover Letter "
-                  className="xl:text-2xl md:text-xl"
+                  className="xl:text-xl md:text-lg"
                 />
               </div>
               <textarea
@@ -209,7 +209,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
                   setForm({ ...form, cover_letter: e.target.value })
                 }
                 placeholder="Type here... "
-                className="border w-full rounded-lg xl:px-4 xl:py-6 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="border w-full rounded-lg xl:px-4 xl:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
 
