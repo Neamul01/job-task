@@ -1,7 +1,6 @@
 "use client";
-import { Accordion, Button, Progress } from "flowbite-react";
+import { Button, Progress } from "flowbite-react";
 import React from "react";
-import { AiOutlinePlayCircle } from "react-icons/ai";
 import CurricilumTabAccordian from "./CurricilumTabAccordian";
 import ReviewCard from "./ReviewCard";
 

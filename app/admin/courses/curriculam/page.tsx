@@ -1,5 +1,5 @@
 "use client";
-import CourseSide from "@/components/Student/Courses/CourseSide";
+import CurriculamSide from "@/components/Student/Courses/CurriculamSide";
 import CurriculumTab from "@/components/Student/Courses/CurriculumTab";
 import OverviewTab from "@/components/Student/Courses/OverviewTab";
 import { Breadcrumb, Tabs } from "flowbite-react";
@@ -64,7 +64,7 @@ export default function Page() {
           </Tabs.Group>
         </div>
         <div className="lg:col-span-4">
-          <CourseSide />
+          <CurriculamSide />
         </div>
       </div>
     </div>
