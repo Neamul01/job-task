@@ -64,27 +64,29 @@ export default function AdminNavbar() {
                 inline
                 label={""}
                 color={"white"}
-                className="text-white"
+                className="text-white relative rounded-md text-sm font-medium w-28"
               >
-                <Dropdown.Header className="flex flex-col items-center">
-                  <span className="block text-sm capitalize">
+                <Dropdown.Header className="flex flex-col gap-2 justify-start p-1 ">
+                  <p className="block text-sm capitalize text-left px-3 py-1 bg-gray-100 w-full">
                     {user?.full_name}
-                  </span>
-                  <span className="block truncate text-sm font-medium capitalize">
+                  </p>
+                  <p className="block text-sm capitalize text-left px-3 py-1 bg-gray-100 w-full">
                     {user?.position}
-                  </span>
+                  </p>
                 </Dropdown.Header>
-                <button
-                  className="text-xs text-center w-full bg-secondary"
-                  onClick={() => {
-                    localStorage.removeItem("user");
-                    localStorage.removeItem("access_token");
-                    console.log("logout");
-                    router.push("/auth/login");
-                  }}
-                >
-                  Log out
-                </button>
+                <div className="w-full p-1">
+                  <button
+                    className="py-2 rounded-lg text-xs text-center w-full bg-secondary "
+                    onClick={() => {
+                      localStorage.removeItem("user");
+                      localStorage.removeItem("access_token");
+                      console.log("logout");
+                      router.push("/auth/login");
+                    }}
+                  >
+                    Log out
+                  </button>
+                </div>
               </Dropdown>
               <Navbar.Toggle />
             </div>
