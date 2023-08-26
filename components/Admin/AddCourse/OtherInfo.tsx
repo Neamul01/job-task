@@ -1,7 +1,11 @@
 import { Label } from "flowbite-react";
 import React from "react";
 
-export default function OtherInfo() {
+type Props = {
+  setOtherFiles: any;
+  submitRef: any;
+};
+export default function OtherInfo({ setOtherFiles, submitRef }: Props) {
   return (
     <form>
       <h3 className="xl:text-h3 font-semibold text-xl">Other Information</h3>

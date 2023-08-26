@@ -9,10 +9,10 @@ type FileType = {
 
 type Props = {
   setAllFiles: (file: FileType) => void;
-  handleSubmit: any;
+  submitRef: any;
 };
 
-export default function FileUpload({ setAllFiles, handleSubmit }: Props) {
+export default function FileUpload({ setAllFiles, submitRef }: Props) {
   const [file, setFile] = React.useState<File | null>(null);
   const [thumbnail, setThumbnail] = React.useState<File | null>(null);
   const [intro, setIntro] = React.useState<File | null>(null);
@@ -25,7 +25,9 @@ export default function FileUpload({ setAllFiles, handleSubmit }: Props) {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setAllFiles(files);
+    console.log("file submitted");
   };
+
   useEffect(() => {
     setFiles({
       main_course_file: file,
@@ -51,6 +53,9 @@ export default function FileUpload({ setAllFiles, handleSubmit }: Props) {
           <SelectFile height={"70px"} setFile={setIntro} />
         </div>
       </div>
+      <button type="submit" className="hidden" ref={submitRef}>
+        submit
+      </button>
     </form>
   );
 }
