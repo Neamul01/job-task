@@ -22,10 +22,10 @@ export default function AdminNavbar() {
 
   const userName = () => {
     if (user) {
-      if (user.full_name.length > 10) {
+      if (user?.full_name?.length > 10) {
         return user.full_name.slice(0, 10) + "...";
       }
-      return user.full_name;
+      return user?.full_name;
     }
   };
 
@@ -33,7 +33,7 @@ export default function AdminNavbar() {
     <>
       {/* Navbar */}
 
-      <Navbar rounded className="bg-primary hidden md:block">
+      <Navbar rounded className="bg-primary hidden md:block sticky top-0 z-20">
         <nav className="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center border-b shadow-sm">
           <div className="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap xl:px-[100px] px-4 md:py-[22px] py-2 bg-primary">
             {/* Form */}

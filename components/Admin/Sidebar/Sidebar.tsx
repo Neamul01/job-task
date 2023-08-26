@@ -155,7 +155,7 @@ export default function Sidebar() {
           {/* Toggler */}
           {collapseMenu}
           {/* Brand logo */}
-          <AppLogo />
+          <AppLogo variant="white" />
           {/* Divider */}
           <hr className="my-4 md:min-w-full" />
 
@@ -186,7 +186,7 @@ export default function Sidebar() {
               <div className="md:min-w-full md:hidden block pb-8 mt-4 border-b border-solid bg-primary">
                 <div className="flex flex-wrap justify-between">
                   <div className="flex justify-end">{collapseMenu}</div>
-                  <AppLogo />
+                  <AppLogo variant="white" />
                 </div>
               </div>
               {/* Form */}
