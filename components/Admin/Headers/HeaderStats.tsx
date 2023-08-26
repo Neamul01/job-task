@@ -28,7 +28,7 @@ export default function HeaderStats({
   loading,
 }: {
   data: Statics[];
-  loading: boolean;
+  loading?: boolean;
 }) {
   return (
     <>
