@@ -1,3 +1,4 @@
+import Loading from "@/components/common/Loading";
 import Axios from "@/utils/Axios";
 import { Alert, Button, Label } from "flowbite-react";
 import React, { useEffect } from "react";
@@ -224,7 +225,7 @@ export default function PersonalInfo({ userData }: { userData: any }) {
           </div>
         </form>
       ) : (
-        <div>Loading...</div>
+        <Loading />
       )}
     </>
   );
